@@ -32,7 +32,6 @@ https://neo4j.com/download/neo4j-desktop/?edition=desktop&flavour=winstall64&rel
 
 Steps to start database (Use windows program)
 - Create new project
-- Create new database "mainBD"
 - Change password to "mainBD"
 - Start database
 
@@ -53,7 +52,6 @@ Open chrome : http://localhost:7474/browser/
 
 - Conect to BD witd:
     - Url:        bolt://localhost:7687
-    - Database:   mainBD
     - Authentication type User/Pass
     - User:       neo4j
     - Pass:       mainBD
