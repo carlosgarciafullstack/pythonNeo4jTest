@@ -1,11 +1,11 @@
-<div class="program-dialog">
+<div class="program-dialog" (mousedown)="windowClick()">
 
     <div mat-dialog-title>
         <p cdkDrag cdkDragRootElement=".cdk-overlay-pane" class="header-dialog">
             <mat-toolbar color="primary">
                 <mat-icon>{{program.iconName}}</mat-icon><h1>{{program.title}}</h1>
                 <span class="spacer"></span>
-                <button mat-icon-button (click)="hide()">
+                <button mat-icon-button (click)="minimize()">
                     <mat-icon>minimize</mat-icon>
                 </button>
                 <button mat-icon-button (click)="maximize()">

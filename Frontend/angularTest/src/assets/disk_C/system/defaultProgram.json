@@ -1,0 +1,52 @@
+{
+    "programs": [
+        {
+            "id" : 1,
+            "title": "Home",
+            "iconName": "home",
+            "dialogRef": null,
+            "isMaximize": false,
+            "isMinimize": false
+        },
+        {
+            "id" : 2,
+            "title": "Device Unknown",
+            "iconName": "device_unknown",
+            "dialogRef": null,
+            "isMaximize": false,
+            "isMinimize": false
+        },
+        {
+            "id" : 3,
+            "title": "Input",
+            "iconName": "input",
+            "dialogRef": null,
+            "isMaximize": false,
+            "isMinimize": false
+        },
+        {
+            "id" : 4,
+            "title": "Functions",
+            "iconName": "functions",
+            "dialogRef": null,
+            "isMaximize": false,
+            "isMinimize": false
+        },
+        {
+            "id" : 5,
+            "title": "Launch",
+            "iconName": "launch",
+            "dialogRef": null,
+            "isMaximize": false,
+            "isMinimize": false
+        },
+        {
+            "id" : 6,
+            "title": "Help",
+            "iconName": "help",
+            "dialogRef": null,
+            "isMaximize": false,
+            "isMinimize": false
+        }
+    ] 
+}

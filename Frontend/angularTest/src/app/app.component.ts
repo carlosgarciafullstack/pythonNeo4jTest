@@ -2,6 +2,7 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { Test1InteconectProvider } from './providers/test1-inteconect.provider';
 import { Task } from 'src/app/models/entities/task.entity';
+import { SystemDataProvider } from './providers/system-data.provider';
 
 @Component({
   selector: 'app-root',
@@ -15,24 +16,27 @@ export class AppComponent implements OnInit, OnDestroy {
   public test1Var: string;
   public programs: Task[];
   
-  private observer: Subscription;
+  private test1ProviderSubscription: Subscription;
+  private systemProviderSubscription: Subscription;
 
-  constructor(private provider: Test1InteconectProvider) {
+  constructor(
+    private test1Provider: Test1InteconectProvider,
+    private systemProvider: SystemDataProvider
+  ) {
     this.title = 'angularTest';
     this.test1Var = '';
-    this.observer = new Subscription();
-    this.programs = [
-      new Task(1,'Home', 'home'),
-      new Task(2,'Device Unknown', 'device_unknown'),
-      new Task(3,'Input', 'input'),
-      new Task(4,'Functions', 'functions'),
-      new Task(5,'Launch', 'launch'),
-      new Task(6,'Help', 'help')
-    ];
+    this.test1ProviderSubscription = new Subscription();
+    this.systemProviderSubscription = new Subscription();
+    this.programs = [];
   }
   
   ngOnInit(): void {
-    this.observer =  this.provider.test1GetData().subscribe(
+    this.test1();
+    this.loadProgramData();
+  }
+
+  public test1() {
+    this.test1ProviderSubscription =  this.test1Provider.test1GetData().subscribe(
       (ok) => {
         this.test1Var = ok.data;
         console.log('test1GetData request successful', ok);
@@ -43,7 +47,20 @@ export class AppComponent implements OnInit, OnDestroy {
     );
   }
 
+  public loadProgramData() {
+    this.test1ProviderSubscription =  this.systemProvider.loadPrograms().subscribe(
+      (response) => {
+        this.programs = response.programs;
+        console.log('test1GetData request successful', response);
+      },
+      (error) => {
+        console.error('test1GetData request fail', error);
+      }
+    );
+  }
+
   ngOnDestroy(): void {
-    this.observer.unsubscribe();
+    this.test1ProviderSubscription.unsubscribe();
+    this.systemProviderSubscription.unsubscribe();
   }
 }

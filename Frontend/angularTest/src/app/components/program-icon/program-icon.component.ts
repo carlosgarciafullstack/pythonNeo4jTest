@@ -1,5 +1,5 @@
 import { Component, Inject, Input, OnInit } from '@angular/core';
-import { TaskManagerProvider } from 'src/app/providers/task-manager.provider';
+import { TaskManagerService } from 'src/app/services/task-manager.service';
 import { Task } from 'src/app/models/entities/task.entity';
 
 @Component({
@@ -12,7 +12,7 @@ export class ProgramIconComponent implements OnInit {
   @Input() program: Task;
   
   constructor(
-    public taskManager: TaskManagerProvider,
+    public taskManager: TaskManagerService,
   ) {
     this.program = new Task();
   }

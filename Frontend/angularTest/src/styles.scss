@@ -27,10 +27,15 @@ body {
 
   #app-home {
     #content {
-        height: calc(100vh - 40px);
-        background-color: black;
-        display: flex;
-        flex-direction: column;
+      background-image: url("assets/img/fondo1.png");
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-position: center;
+
+      height: calc(100vh - 40px);
+      background-color: black;
+      display: flex;
+      flex-direction: column;
     }
     #init-bar {
         background-color: rgb(28, 28, 28);
@@ -79,7 +84,7 @@ body {
           }
         }
       
-        #hideAll {
+        #minimizeAll {
           height: 40px;
           width: 6px;
           border-left: rgb(124, 120, 120) solid 1px;
@@ -93,6 +98,10 @@ body {
   .cdk-overlay-backdrop {
     position: relative;
   }
+  .cdk-global-overlay-wrapper {
+    z-index: auto;
+  }
+
   .cdk-overlay-container {
     .dialogProgram {
       max-width: 100vw !important;
@@ -106,9 +115,14 @@ body {
       top: 0;
       left: 0;
       transform: none !important;
+      z-index: 2000;
     }
     .noVisible {
       display: none;
+    }
+
+    .primary-window {
+      z-index: 1500;
     }
     
   }

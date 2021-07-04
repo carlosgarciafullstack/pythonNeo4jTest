@@ -1,5 +1,5 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
-import { TaskManagerProvider } from 'src/app/providers/task-manager.provider';
+import { TaskManagerService } from 'src/app/services/task-manager.service';
 
 @Component({
   selector: 'app-menu-bar',
@@ -11,14 +11,14 @@ export class MenuBarComponent implements OnInit {
 
   public fillColor: string;
 
-  constructor(public taskManager: TaskManagerProvider ) { 
+  constructor(public taskManager: TaskManagerService ) { 
     this.fillColor = '#fff';
   }
 
   ngOnInit(): void {
   }
 
-  public hideAll() {
+  public minimizeAll() {
     this.taskManager.minimizeAll();
   }
 

@@ -1,7 +1,7 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA, MAT_DIALOG_DEFAULT_OPTIONS } from '@angular/material/dialog';
 import { Task } from 'src/app/models/entities/task.entity';
-import { TaskManagerProvider } from 'src/app/providers/task-manager.provider';
+import { TaskManagerService } from 'src/app/services/task-manager.service';
 
 @Component({
   selector: 'app-window',
@@ -15,7 +15,7 @@ export class WindowComponent implements OnInit {
 
   constructor(
     @Inject(MAT_DIALOG_DATA) public data: Task,
-    public taskManager: TaskManagerProvider, 
+    public taskManager: TaskManagerService, 
   ) {
     this.program = new Task();
   }
@@ -29,12 +29,16 @@ export class WindowComponent implements OnInit {
     this.taskManager.maximize(this.program);
   }
 
-  public hide() {
-    this.taskManager.hide(this.program);
+  public minimize() {
+    this.taskManager.minimize(this.program);
   }
 
   public close() {
     this.taskManager.close(this.program);
+  }
+
+  public windowClick() {
+    this.taskManager.primary(this.program);
   }
 
 }

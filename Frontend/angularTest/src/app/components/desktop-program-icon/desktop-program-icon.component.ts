@@ -1,7 +1,7 @@
 import { Component, Inject, Input, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { Task } from 'src/app/models/entities/task.entity';
-import { TaskManagerProvider } from 'src/app/providers/task-manager.provider';
+import { TaskManagerService } from 'src/app/services/task-manager.service';
 import { WindowComponent } from '../window/window.component';
 
 @Component({
@@ -14,7 +14,7 @@ export class DesktopProgramIconComponent implements OnInit {
   @Input() program: Task;
   
   constructor(
-    public taskManager: TaskManagerProvider, 
+    public taskManager: TaskManagerService, 
     public dialog: MatDialog
   ) {
     this.program = new Task();
