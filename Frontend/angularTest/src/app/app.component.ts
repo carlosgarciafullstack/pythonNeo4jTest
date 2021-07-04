@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { Test1InteconectProvider } from './providers/test1-inteconect.provider';
 
@@ -8,10 +8,11 @@ import { Test1InteconectProvider } from './providers/test1-inteconect.provider';
   styleUrls: ['./app.component.scss'],
   providers:  [ Test1InteconectProvider ]
 })
-export class AppComponent implements OnInit {
+export class AppComponent implements OnInit, OnDestroy {
   
   public title: string;
   public test1Var: string;
+  
   private observer: Subscription;
 
   constructor(private provider: Test1InteconectProvider) {
@@ -19,6 +20,7 @@ export class AppComponent implements OnInit {
     this.test1Var = '';
     this.observer = new Subscription();
   }
+  
 
 
   ngOnInit(): void {
@@ -31,5 +33,9 @@ export class AppComponent implements OnInit {
         console.error('test1GetData request fail', ko);
       }
     );
+  }
+
+  ngOnDestroy(): void {
+    this.observer.unsubscribe();
   }
 }

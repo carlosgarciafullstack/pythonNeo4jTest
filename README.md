@@ -16,8 +16,8 @@ https://flask.palletsprojects.com/en/2.0.x/installation/#install-flask
 ```
  PythonTest\pythonNeo4jTest\Backend> py -3 -m venv venv
  PythonTest\pythonNeo4jTest\Backend> venv\Scripts\activate
- pip install Flask
- pip install neo4j
+ pip install -U Flask
+ pip install -U neo4j
  pip install -U flask-cors
  PythonTest\pythonNeo4jTest\Backend\pythonTest> $env:FLASK_APP = "app"
  PythonTest\pythonNeo4jTest\Backend\pythonTest> flask run
