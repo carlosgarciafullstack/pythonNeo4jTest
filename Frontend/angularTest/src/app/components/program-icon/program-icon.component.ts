@@ -1,7 +1,6 @@
 import { Component, Inject, Input, OnInit } from '@angular/core';
-import { MatDialog } from '@angular/material/dialog';
 import { TaskManagerProvider } from 'src/app/providers/task-manager.provider';
-import { WindowComponent } from '../window/window.component';
+import { Task } from 'src/app/models/entities/task.entity';
 
 @Component({
   selector: 'app-program-icon',
@@ -10,31 +9,18 @@ import { WindowComponent } from '../window/window.component';
 })
 export class ProgramIconComponent implements OnInit {
 
-  @Input() icon = 'home';
+  @Input() program: Task;
   
   constructor(
-    public taskManager: TaskManagerProvider, 
-    //public dialog: MatDialog
-  ) {}
+    public taskManager: TaskManagerProvider,
+  ) {
+    this.program = new Task();
+  }
 
   ngOnInit(): void {}
 
-  public click(data: any) {
-    
+  public click() {
+    this.taskManager.normalize(this.program);
   }
-
-  /*
-  public openDialog() {
-    this.dialog.open(WindowComponent, {
-      data: {
-        animal: 'panda'
-      },
-      panelClass: 'dialogC',
-      disableClose: true
-    });
-  }
-  */
-  
-  
 
 }

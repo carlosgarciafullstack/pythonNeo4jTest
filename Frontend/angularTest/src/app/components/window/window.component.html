@@ -3,9 +3,15 @@
     <div mat-dialog-title>
         <p cdkDrag cdkDragRootElement=".cdk-overlay-pane" class="header-dialog">
             <mat-toolbar color="primary">
-                <h1>Program X</h1>
+                <mat-icon>{{program.iconName}}</mat-icon><h1>{{program.title}}</h1>
                 <span class="spacer"></span>
-                <button mat-icon-button class="close-icon" [mat-dialog-close]="true">
+                <button mat-icon-button (click)="hide()">
+                    <mat-icon>minimize</mat-icon>
+                </button>
+                <button mat-icon-button (click)="maximize()">
+                    <mat-icon>maximize</mat-icon>
+                </button>
+                <button mat-icon-button [mat-dialog-close]="false" (click)="close()">
                     <mat-icon>close</mat-icon>
                 </button>
             </mat-toolbar>

@@ -10,20 +10,23 @@
         <mat-form-field appearance="legacy" class="search-input-bar">
             <mat-label>Escribe aquí para buscar</mat-label>
             <input matInput>
-            <mat-icon matPrefix>help</mat-icon>
+            <mat-icon matPrefix>search</mat-icon>
         </mat-form-field>
     </div>
 
     <div id="programs">
         <div class="programs-content">
-            <app-program-icon icon="home"></app-program-icon>
-            <app-program-icon icon="help"></app-program-icon>
-            <app-program-icon icon="launch"></app-program-icon>
-            <app-program-icon icon="functions"></app-program-icon>
+            <ng-template ngFor let-item="$implicit" [ngForOf]="taskManager.activeTasks" let-i="index">
+                <app-program-icon [program]="item" ></app-program-icon>
+              </ng-template>
         </div>
     </div>
 
     <div id="status">
 
+    </div>
+
+    <div id="hideAll" (click)="hideAll()">
+        
     </div>
 </div>

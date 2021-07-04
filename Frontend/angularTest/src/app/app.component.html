@@ -1,14 +1,9 @@
 <div id="app-home">
+
   <div id="content">
-
-    <app-desktop-program-icon icon="home"></app-desktop-program-icon>
-    <app-desktop-program-icon icon="device_unknown"></app-desktop-program-icon>
-    <app-desktop-program-icon icon="input"></app-desktop-program-icon>
-    <app-desktop-program-icon icon="functions"></app-desktop-program-icon>
-    <app-desktop-program-icon icon="launch"></app-desktop-program-icon>
-    <app-desktop-program-icon icon="help"></app-desktop-program-icon>
-    
-
+    <ng-template ngFor let-item="$implicit" [ngForOf]="programs" let-i="index">
+      <app-desktop-program-icon [program]="item" ></app-desktop-program-icon>
+    </ng-template>
   </div>
 
   <app-menu-bar></app-menu-bar>
