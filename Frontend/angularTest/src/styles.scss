@@ -15,6 +15,12 @@ $angularTest-theme: mat.define-light-theme((
 
 @include mat.all-component-themes($angularTest-theme);
 
+$wInitButton: 48px;
+$wSearch: 344px;
+$wStatus: 193px;
+$wMinimizeAll: 5px;
+
+
 html, body { 
   height: 100vh;
   width: 100vw;
@@ -41,6 +47,8 @@ body {
       background-color: rgb(28, 28, 28);
       height: 40px;
       display: flex;
+      max-width: 100vw;
+      width: 100vw;
       
       #init-button {
           border-radius: 0px;
@@ -48,7 +56,7 @@ body {
           margin: 0px 0px 0px 0px;
           padding: 0px;
           height: 40px;
-          min-width: 48px;
+          min-width: $wInitButton;
 
           #init-icon {
               width: 21px;
@@ -66,18 +74,22 @@ body {
           height: 40px;
       }
       #search {
-          height: 40px;
-          width: 462px;
-          background-color: white;
-          contain: content;
+        height: 40px;
+        width: $wSearch;
+        background-color: white;
+        contain: content;
       }
       #status {
-        width: 100px;
+        width: $wStatus;
+
+        .status-bar {
+          display: flex;
+          flex-direction: row;
+        }
       }
       #programs {
-        margin: 2px 10px;
-        width: 100%;
-    
+        padding: 2px 10px;
+        width: calc(100vw - #{$wInitButton} - #{$wSearch} - #{$wStatus} - #{$wMinimizeAll});
         .programs-content {
           display: flex;
           flex-direction: row;
@@ -86,7 +98,7 @@ body {
     
       #minimizeAll {
         height: 40px;
-        width: 6px;
+        width: $wMinimizeAll;
         border-left: rgb(124, 120, 120) solid 1px;
       }
   }

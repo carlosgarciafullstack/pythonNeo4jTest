@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { MatDialog, MatDialogRef } from '@angular/material/dialog';
 import { Task } from 'src/app/models/entities/task.entity';
 import { WindowComponent } from '../components/window/window.component';
+import { MainProgram } from '../models/entities/main-program.entity';
 import { Program } from '../models/entities/program.entity';
 
 @Injectable({
@@ -11,10 +12,16 @@ export class TaskManagerService {
 
   private idTaskCurrent: number;
   public activeTasks: Task[];
+  public mainPrograms: MainProgram[];
   
 
   constructor(public dialog: MatDialog) {
     this.activeTasks = [];
+    this.mainPrograms = [{
+      idProgram: 20,
+      title: '',
+      iconName: 'home'
+    }];
     this.idTaskCurrent = 0;
   }
 

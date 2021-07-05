@@ -26,6 +26,7 @@ import { MenuBarComponent } from './views/view-finder-os/menu-bar/menu-bar.compo
 import { MenuInitComponent } from './views/view-finder-os/menu-bar/menu-init/menu-init.component';
 import { ViewContentComponent } from './views/view-finder-os/view-content/view-content.component';
 import { InitMenuItemsComponent } from './components/init-menu-items/init-menu-items.component';
+import { StatusIconComponent } from './components/status-icon/status-icon.component';
 
 @NgModule({
   declarations: [
@@ -39,7 +40,8 @@ import { InitMenuItemsComponent } from './components/init-menu-items/init-menu-i
     MenuInitComponent,
     ViewFinderOSComponent,
     ViewContentComponent,
-    InitMenuItemsComponent
+    InitMenuItemsComponent,
+    StatusIconComponent
   ],
   imports: [
     BrowserModule,
