@@ -1,19 +1,25 @@
+import { MatDialogRef } from "@angular/material/dialog";
+import { WindowComponent } from "src/app/components/window/window.component";
 import { ITask } from "../interfaces/task.interface";
+import { Program } from "./program.entity";
 
-export class Task implements ITask{
+export class Task implements ITask {
 
-    id: number;
+    idTask: number;
+    idProgram: number;
     title: string;
     iconName: string;
-    dialogRef: any;
+    dialogRef: MatDialogRef<WindowComponent>;
     isMaximize: boolean;
     isMinimize: boolean;
 
-    constructor (id = 1, title = "Home", iconName = "home" ) {
-        this.id = id;
-        this.title = title;
-        this.iconName = iconName;
-        this.dialogRef = undefined;
+    constructor (program: Program, dialogRef: MatDialogRef<WindowComponent>) {
+        this.idProgram = program.idProgram;
+        this.title = program.title;
+        this.iconName = program.iconName;
+        this.idTask = program.idTask;
+        
+        this.dialogRef = dialogRef;
         this.isMaximize = false;
         this.isMinimize = false;
     }

@@ -9,18 +9,17 @@ import { Task } from 'src/app/models/entities/task.entity';
 })
 export class ProgramIconComponent implements OnInit {
 
-  @Input() program: Task;
+  @Input()
+  public task!: Task;
   
   constructor(
     public taskManager: TaskManagerService,
-  ) {
-    this.program = new Task();
-  }
+  ) {}
 
   ngOnInit(): void {}
 
   public click() {
-    this.taskManager.normalize(this.program);
+    this.taskManager.normalize(this.task);
   }
 
 }

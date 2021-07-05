@@ -1,46 +1,66 @@
 import { Injectable } from '@angular/core';
-import { MatDialogRef } from '@angular/material/dialog';
+import { MatDialog, MatDialogRef } from '@angular/material/dialog';
 import { Task } from 'src/app/models/entities/task.entity';
 import { WindowComponent } from '../components/window/window.component';
+import { Program } from '../models/entities/program.entity';
 
 @Injectable({
   providedIn: 'root'
 })
 export class TaskManagerService {
 
+  private idTaskCurrent: number;
   public activeTasks: Task[];
+  
 
-  constructor() {
+  constructor(public dialog: MatDialog) {
     this.activeTasks = [];
+    this.idTaskCurrent = 0;
   }
 
-  public open(task: Task, dialogRef: MatDialogRef<WindowComponent>) {
-    task.dialogRef = dialogRef;
+  /*
+  ************************
+  *** Public functions ***
+  ************************
+  */
+
+  // Programs basic actions
+  public open(program: Program) {
+    
+    program.idTask = this.idTaskCurrent;
+
+    let dialogRef = this.dialog.open(WindowComponent, {
+      data: program,
+      panelClass: 'dialogProgram',
+      disableClose: true
+    });
+    
+    let task = new Task(program, dialogRef);
     this.activeTasks.push(task);
+    this.idTaskCurrent++;
   }
 
-  public close(task: Task) {
-    const index = this.activeTasks.indexOf(task, 0);
+  public close(task: Program) {
+    const index = this.activeTasks.findIndex(element => element.idTask == task.idTask);
     if (index > -1) {
       this.activeTasks.splice(index, 1);
     }
   }
 
-  
-  public maximize(importTask: Task) {
+  // Programs secondary actions
+  public maximize(importTask: Program) {
     let task = this.getTask(importTask);
     if(task) {
       this.setAltMaximize(task);
     }
   }
 
-  public minimize(importTask: Task) {
+  public minimize(importTask: Program) {
     let task = this.getTask(importTask);
     if(task) {
       this.setAltMinimize(task);
     }
   }
-
 
   public minimizeAll() {
     this.activeTasks.forEach(element => {
@@ -50,7 +70,7 @@ export class TaskManagerService {
 
   public normalizeAll(task: Task) {
     this.activeTasks.forEach(element => {
-      if(element.id != task.id) {
+      if(element.idTask != task.idTask) {
         this.setNormalize(element);
       }
     });
@@ -67,7 +87,7 @@ export class TaskManagerService {
     }
   }
 
-  public primary(importTask: Task) {
+  public primary(importTask: Program) {
     let task = this.getTask(importTask);
     if(task) {
       this.setPrimary(task);
@@ -75,10 +95,14 @@ export class TaskManagerService {
   }
 
 
-
+  /*
+  *************************
+  *** Private functions ***
+  *************************
+  */
   private setPrimary(task: Task) {
     this.activeTasks.forEach(element => {
-      if(element.id == task.id) {
+      if(element.idTask == task.idTask) {
         element.dialogRef.addPanelClass('primary-window');
       } else {
         element.dialogRef.removePanelClass('primary-window');
@@ -117,7 +141,7 @@ export class TaskManagerService {
     task.isMaximize = false;
   }
 
-  private getTask(task: Task) : Task | undefined {
-    return this.activeTasks.find(element => element.id == task.id);
+  private getTask(task: Program) : Task | undefined {
+    return this.activeTasks.find(element => element.idTask == task.idTask);
   }
 }

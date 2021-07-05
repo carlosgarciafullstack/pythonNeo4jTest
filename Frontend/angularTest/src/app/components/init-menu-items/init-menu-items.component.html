@@ -1,0 +1,3 @@
+<ng-template ngFor let-item="$implicit" [ngForOf]="programs" let-i="index">
+    <button mat-menu-item (click)="click($event,item)">{{item.title}}</button>
+</ng-template>

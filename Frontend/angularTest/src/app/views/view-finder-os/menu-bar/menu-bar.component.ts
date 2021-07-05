@@ -9,14 +9,9 @@ import { TaskManagerService } from 'src/app/services/task-manager.service';
 })
 export class MenuBarComponent implements OnInit {
 
-  public fillColor: string;
+  constructor(public taskManager: TaskManagerService ) {}
 
-  constructor(public taskManager: TaskManagerService ) { 
-    this.fillColor = '#fff';
-  }
-
-  ngOnInit(): void {
-  }
+  ngOnInit(): void {}
 
   public minimizeAll() {
     this.taskManager.minimizeAll();

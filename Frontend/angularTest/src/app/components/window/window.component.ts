@@ -1,5 +1,6 @@
 import { Component, Inject, OnInit } from '@angular/core';
-import { MatDialogRef, MAT_DIALOG_DATA, MAT_DIALOG_DEFAULT_OPTIONS } from '@angular/material/dialog';
+import { MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { Program } from 'src/app/models/entities/program.entity';
 import { Task } from 'src/app/models/entities/task.entity';
 import { TaskManagerService } from 'src/app/services/task-manager.service';
 
@@ -10,20 +11,16 @@ import { TaskManagerService } from 'src/app/services/task-manager.service';
 })
 export class WindowComponent implements OnInit {
 
-  public program: Task;
-  public dialogRef: any;
+  public program: Program;
 
   constructor(
-    @Inject(MAT_DIALOG_DATA) public data: Task,
+    @Inject(MAT_DIALOG_DATA) public data: Program,
     public taskManager: TaskManagerService, 
   ) {
-    this.program = new Task();
+    this.program = JSON.parse(JSON.stringify(this.data));
   }
 
-  ngOnInit(): void {
-    this.program = this.data;
-    this.dialogRef = this.data.dialogRef;
-  }
+  ngOnInit(): void {}
 
   public maximize() {
     this.taskManager.maximize(this.program);

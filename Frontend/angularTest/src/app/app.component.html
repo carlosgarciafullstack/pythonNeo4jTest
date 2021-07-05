@@ -1,12 +1,3 @@
-<div id="app-home" >
-
-  <div id="content">
-    <ng-template ngFor let-item="$implicit" [ngForOf]="programs" let-i="index">
-      <app-desktop-program-icon [program]="item" ></app-desktop-program-icon>
-    </ng-template>
-  </div>
-
-  <app-menu-bar></app-menu-bar>
-
-  <!--<router-outlet></router-outlet>-->
+<div id="app-home">
+  <router-outlet></router-outlet>
 </div>

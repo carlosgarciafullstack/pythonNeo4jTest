@@ -25,72 +25,72 @@ body {
   margin: 0; 
   font-family: Roboto, "Helvetica Neue", sans-serif; 
 
-  #app-home {
-    #content {
-      background-image: url("assets/img/fondo1.png");
-      background-repeat: no-repeat;
-      background-size: cover;
-      background-position: center;
+  
+  #content {
+    background-image: url("assets/img/fondo1.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
 
-      height: calc(100vh - 40px);
-      background-color: black;
-      display: flex;
-      flex-direction: column;
-    }
-    #init-bar {
-        background-color: rgb(28, 28, 28);
-        height: 40px;
-        display: flex;
-        
-        #init-button {
-            border-radius: 0px;
-            background-color: rgb(28, 28, 28);
-            margin: 0px 0px 0px 0px;
-            padding: 0px;
-            height: 40px;
-            min-width: 48px;
-
-            #init-icon {
-                width: 21px;
-            }
-        }
-        #init-button:hover {
-          background-color: #313131;
-         
-          svg {
-            fill: rgb(66, 156, 227);
-          }
-        }
-
-        mat-toolbar {
-            height: 40px;
-        }
-        #search {
-            height: 40px;
-            width: 462px;
-            background-color: white;
-            contain: content;
-        }
-        #status {
-          width: 100px;
-        }
-        #programs {
-          margin: 2px 10px;
-          width: 100%;
-      
-          .programs-content {
-            display: flex;
-            flex-direction: row;
-          }
-        }
-      
-        #minimizeAll {
-          height: 40px;
-          width: 6px;
-          border-left: rgb(124, 120, 120) solid 1px;
-        }
-    }
+    height: calc(100vh - 40px);
+    background-color: black;
+    display: flex;
+    flex-direction: column;
   }
+  #init-bar {
+      background-color: rgb(28, 28, 28);
+      height: 40px;
+      display: flex;
+      
+      #init-button {
+          border-radius: 0px;
+          background-color: rgb(28, 28, 28);
+          margin: 0px 0px 0px 0px;
+          padding: 0px;
+          height: 40px;
+          min-width: 48px;
+
+          #init-icon {
+              width: 21px;
+          }
+      }
+      #init-button:hover {
+        background-color: #313131;
+        
+        svg {
+          fill: rgb(66, 156, 227);
+        }
+      }
+
+      mat-toolbar {
+          height: 40px;
+      }
+      #search {
+          height: 40px;
+          width: 462px;
+          background-color: white;
+          contain: content;
+      }
+      #status {
+        width: 100px;
+      }
+      #programs {
+        margin: 2px 10px;
+        width: 100%;
+    
+        .programs-content {
+          display: flex;
+          flex-direction: row;
+        }
+      }
+    
+      #minimizeAll {
+        height: 40px;
+        width: 6px;
+        border-left: rgb(124, 120, 120) solid 1px;
+      }
+  }
+  
   
   .cdk-overlay-backdrop.cdk-overlay-backdrop-showing {
     opacity: 0;

@@ -19,9 +19,13 @@ import { MatMenuModule } from '@angular/material/menu';
 
 import { SvgComponent } from './components/svgs/svg/svg.component';
 import { ProgramIconComponent } from './components/program-icon/program-icon.component';
-import { MenuBarComponent } from './views/view-finder/menu-bar/menu-bar.component';
 import { WindowComponent } from './components/window/window.component';
 import { DesktopProgramIconComponent } from './components/desktop-program-icon/desktop-program-icon.component';
+import { ViewFinderOSComponent } from './views/view-finder-os/view-finder-os.component';
+import { MenuBarComponent } from './views/view-finder-os/menu-bar/menu-bar.component';
+import { MenuInitComponent } from './views/view-finder-os/menu-bar/menu-init/menu-init.component';
+import { ViewContentComponent } from './views/view-finder-os/view-content/view-content.component';
+import { InitMenuItemsComponent } from './components/init-menu-items/init-menu-items.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +35,11 @@ import { DesktopProgramIconComponent } from './components/desktop-program-icon/d
     ProgramIconComponent,
     MenuBarComponent,
     WindowComponent,
-    DesktopProgramIconComponent
+    DesktopProgramIconComponent,
+    MenuInitComponent,
+    ViewFinderOSComponent,
+    ViewContentComponent,
+    InitMenuItemsComponent
   ],
   imports: [
     BrowserModule,

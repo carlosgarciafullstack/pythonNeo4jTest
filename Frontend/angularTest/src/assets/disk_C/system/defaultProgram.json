@@ -1,52 +1,34 @@
 {
     "programs": [
         {
-            "id" : 1,
+            "idProgram" : 1,
             "title": "Home",
-            "iconName": "home",
-            "dialogRef": null,
-            "isMaximize": false,
-            "isMinimize": false
+            "iconName": "home"
         },
         {
-            "id" : 2,
+            "idProgram" : 2,
             "title": "Device Unknown",
-            "iconName": "device_unknown",
-            "dialogRef": null,
-            "isMaximize": false,
-            "isMinimize": false
+            "iconName": "device_unknown"
         },
         {
-            "id" : 3,
+            "idProgram" : 3,
             "title": "Input",
-            "iconName": "input",
-            "dialogRef": null,
-            "isMaximize": false,
-            "isMinimize": false
+            "iconName": "input"
         },
         {
-            "id" : 4,
+            "idProgram" : 4,
             "title": "Functions",
-            "iconName": "functions",
-            "dialogRef": null,
-            "isMaximize": false,
-            "isMinimize": false
+            "iconName": "functions"
         },
         {
-            "id" : 5,
+            "idProgram" : 5,
             "title": "Launch",
-            "iconName": "launch",
-            "dialogRef": null,
-            "isMaximize": false,
-            "isMinimize": false
+            "iconName": "launch"
         },
         {
-            "id" : 6,
+            "idProgram" : 6,
             "title": "Help",
-            "iconName": "help",
-            "dialogRef": null,
-            "isMaximize": false,
-            "isMinimize": false
+            "iconName": "help"
         }
     ] 
 }

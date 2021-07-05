@@ -1,8 +1,6 @@
 import { Component, Inject, Input, OnInit } from '@angular/core';
-import { MatDialog } from '@angular/material/dialog';
-import { Task } from 'src/app/models/entities/task.entity';
+import { Program } from 'src/app/models/entities/program.entity';
 import { TaskManagerService } from 'src/app/services/task-manager.service';
-import { WindowComponent } from '../window/window.component';
 
 @Component({
   selector: 'app-desktop-program-icon',
@@ -11,30 +9,20 @@ import { WindowComponent } from '../window/window.component';
 })
 export class DesktopProgramIconComponent implements OnInit {
 
-  @Input() program: Task;
-  
+  @Input() public program: Program;
+
   constructor(
     public taskManager: TaskManagerService, 
-    public dialog: MatDialog
   ) {
-    this.program = new Task();
+    this.program = new Program();
   }
 
   ngOnInit(): void {}
 
   public click(data: any) {
     if(data.detail == 2) {
-      this.openDialog();
+      this.taskManager.open(this.program);
     }
-  }
-
-  public openDialog() {
-    let a = this.dialog.open(WindowComponent, {
-      data: this.program,
-      panelClass: 'dialogProgram',
-      disableClose: true
-    });
-    this.taskManager.open(this.program, a);
   }
   
 }
