@@ -9,6 +9,7 @@ export class Task implements ITask {
     idProgram: number;
     title: string;
     iconName: string;
+    colorIcon: string;
     dialogRef: MatDialogRef<WindowComponent>;
     isMaximize: boolean;
     isMinimize: boolean;
@@ -18,6 +19,7 @@ export class Task implements ITask {
         this.title = program.title;
         this.iconName = program.iconName;
         this.idTask = program.idTask;
+        this.colorIcon = program.colorIcon;
         
         this.dialogRef = dialogRef;
         this.isMaximize = false;

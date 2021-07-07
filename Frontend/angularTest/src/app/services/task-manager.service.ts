@@ -20,7 +20,7 @@ export class TaskManagerService {
     this.mainPrograms = [{
       idProgram: 20,
       title: '',
-      iconName: 'home'
+      iconName: 'volume_up'
     }];
     this.idTaskCurrent = 0;
   }
@@ -148,7 +148,7 @@ export class TaskManagerService {
     task.isMaximize = false;
   }
 
-  private getTask(task: Program) : Task | undefined {
+  private getTask(task: Program | Task) : Task | undefined {
     return this.activeTasks.find(element => element.idTask == task.idTask);
   }
 }

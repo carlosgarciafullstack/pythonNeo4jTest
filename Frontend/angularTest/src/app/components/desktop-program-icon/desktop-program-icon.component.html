@@ -1,5 +1,5 @@
 <div (click)="click($event)" cdkDragBoundary="#app-home" cdkDrag class="icon-workspace">
-    <button mat-raised-button class="program-icon-button" color="primary">
+    <button mat-raised-button class="program-icon-button" [style]="{'background-color': colorIcon}">
         <mat-icon aria-hidden="false">{{program.iconName}}</mat-icon>
     </button>
 </div>

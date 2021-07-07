@@ -1,5 +1,16 @@
+<mat-icon [matMenuTriggerFor]="menu">{{program.iconName}}</mat-icon>
 
-<mat-icon matPrefix>search</mat-icon>
-<mat-icon matPrefix>search</mat-icon>
-<mat-icon matPrefix>search</mat-icon>
-<mat-icon matPrefix>search</mat-icon>
+<mat-menu class="menu_volume" #menu="matMenu">
+    <mat-icon style="color:black;margin: 0px;
+    position: relative;
+    top: 2px;
+    right: -7px;">{{program.iconName}}</mat-icon>
+    <mat-slider
+        class="example-margin"
+        max="60"
+        min="20"
+        step="1"
+        vertical="true">
+    </mat-slider>
+    
+</mat-menu>

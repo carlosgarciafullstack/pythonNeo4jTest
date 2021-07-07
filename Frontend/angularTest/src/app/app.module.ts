@@ -16,6 +16,7 @@ import { MatCardModule } from '@angular/material/card';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatMenuModule } from '@angular/material/menu';
+import { MatSliderModule } from '@angular/material/slider';
 
 import { SvgComponent } from './components/svgs/svg/svg.component';
 import { ProgramIconComponent } from './components/program-icon/program-icon.component';
@@ -27,6 +28,12 @@ import { MenuInitComponent } from './views/view-finder-os/menu-bar/menu-init/men
 import { ViewContentComponent } from './views/view-finder-os/view-content/view-content.component';
 import { InitMenuItemsComponent } from './components/init-menu-items/init-menu-items.component';
 import { StatusIconComponent } from './components/status-icon/status-icon.component';
+import { WatchComponent } from './components/watch/watch.component';
+import { AudioPlayerTestComponent } from './components/audio-player-test/audio-player-test.component';
+import { AppRoutingModuleOS } from './views/view-finder-os/app-routing-os-program.module';
+import { CalculatorComponent } from './views/view-finder-os/programs/calculator/calculator.component';
+import { HelpComponent } from './views/view-finder-os/programs/help/help.component';
+import { AudioPlayerComponent } from './views/view-finder-os/programs/audio-player/audio-player.component';
 
 @NgModule({
   declarations: [
@@ -41,11 +48,17 @@ import { StatusIconComponent } from './components/status-icon/status-icon.compon
     ViewFinderOSComponent,
     ViewContentComponent,
     InitMenuItemsComponent,
-    StatusIconComponent
+    StatusIconComponent,
+    WatchComponent,
+    AudioPlayerTestComponent,
+    CalculatorComponent,
+    HelpComponent,
+    AudioPlayerComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
+    AppRoutingModuleOS,
     HttpClientModule,
     BrowserAnimationsModule,
     MatToolbarModule,
@@ -56,7 +69,8 @@ import { StatusIconComponent } from './components/status-icon/status-icon.compon
     MatCardModule,
     MatFormFieldModule,
     MatInputModule,
-    MatMenuModule
+    MatMenuModule,
+    MatSliderModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,5 +1,4 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
-import { Subscription } from 'rxjs';
+import { Component } from '@angular/core';
 import { Test1InteconectProvider } from './providers/test1-inteconect.provider';
 
 @Component({

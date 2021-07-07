@@ -1,7 +1,7 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { Router } from '@angular/router';
 import { Program } from 'src/app/models/entities/program.entity';
-import { Task } from 'src/app/models/entities/task.entity';
 import { TaskManagerService } from 'src/app/services/task-manager.service';
 
 @Component({
@@ -12,15 +12,20 @@ import { TaskManagerService } from 'src/app/services/task-manager.service';
 export class WindowComponent implements OnInit {
 
   public program: Program;
+  public colorIcon: string;
 
   constructor(
     @Inject(MAT_DIALOG_DATA) public data: Program,
     public taskManager: TaskManagerService, 
+    public router: Router
   ) {
     this.program = JSON.parse(JSON.stringify(this.data));
+    this.colorIcon = this.program.colorIcon;
   }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.router.navigate([{outlets: {sidebar: this.data.programRoute}}]);
+  }
 
   public maximize() {
     this.taskManager.maximize(this.program);

@@ -3,32 +3,38 @@
         {
             "idProgram" : 1,
             "title": "Home",
-            "iconName": "home"
+            "iconName": "home",
+            "programRoute": "program-help"
         },
         {
             "idProgram" : 2,
             "title": "Device Unknown",
-            "iconName": "device_unknown"
+            "iconName": "device_unknown",
+            "programRoute": "program-audio"
         },
         {
             "idProgram" : 3,
             "title": "Input",
-            "iconName": "input"
+            "iconName": "input",
+            "programRoute": "program-calculator"
         },
         {
             "idProgram" : 4,
             "title": "Functions",
-            "iconName": "functions"
+            "iconName": "functions",
+            "programRoute": "program-calculator"
         },
         {
             "idProgram" : 5,
             "title": "Launch",
-            "iconName": "launch"
+            "iconName": "launch",
+            "programRoute": "program-audio"
         },
         {
             "idProgram" : 6,
             "title": "Help",
-            "iconName": "help"
+            "iconName": "help",
+            "programRoute": "program-help"
         }
     ] 
 }

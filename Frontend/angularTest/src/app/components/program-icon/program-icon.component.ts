@@ -11,12 +11,18 @@ export class ProgramIconComponent implements OnInit {
 
   @Input()
   public task!: Task;
+
+  public colorIcon: string;
   
   constructor(
     public taskManager: TaskManagerService,
-  ) {}
+  ) {
+    this.colorIcon = '';
+  }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.colorIcon =  this.task.colorIcon;
+  }
 
   public click() {
     this.taskManager.normalize(this.task);

@@ -6,7 +6,7 @@
         <mat-form-field appearance="legacy" class="search-input-bar">
             <mat-label>Escribe aquí para buscar</mat-label>
             <input matInput>
-            <mat-icon matPrefix>search</mat-icon>
+            <mat-icon matPrefix style="transform: scaleX(-1);">search</mat-icon>
         </mat-form-field>
     </div>
 
@@ -18,13 +18,16 @@
         </div>
     </div>
 
-    <div id="status">
-        <div class="status-bar">
+    <div id="status-bar">
+        <div class="status-icon-bar">
             <ng-template ngFor let-item="$implicit" [ngForOf]="taskManager.mainPrograms" let-i="index">
                 <app-status-icon [program]="item"></app-status-icon>
+               
             </ng-template>
+            
         </div>
+        <app-watch></app-watch>
     </div>
 
-    <div id="minimizeAll" (click)="minimizeAll()"></div>
+    <div id="minimize-all" (click)="minimizeAll()"></div>
 </div>

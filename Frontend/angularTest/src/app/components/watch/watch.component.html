@@ -1,0 +1,10 @@
+<div id="watch">
+    <div class="watch-border" [ngClass]="activeStyle.cssClass" (click)="toggleStyles()">
+        <div class="watch-hour">
+            {{format_one}}
+        </div>
+        <div class="watch-date">
+            {{format_two}}
+        </div>
+    </div>
+</div>
