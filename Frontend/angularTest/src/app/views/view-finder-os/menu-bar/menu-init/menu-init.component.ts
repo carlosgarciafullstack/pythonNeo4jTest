@@ -1,9 +1,6 @@
-import { Component, Input, OnDestroy, OnInit } from '@angular/core';
-import { MatDialog } from '@angular/material/dialog';
-import { Subscription } from 'rxjs';
-import { WindowComponent } from 'src/app/components/window/window.component';
-import { Program } from 'src/app/models/entities/program.entity';
-import { SystemDataProvider } from 'src/app/providers/system-data.provider';
+import { Component } from '@angular/core';
+import { ProgramLauncher } from 'src/app/models/entities/program-launcher.entity';
+import { SystemService } from 'src/app/services/system.service';
 import { TaskManagerService } from 'src/app/services/task-manager.service';
 
 @Component({
@@ -11,41 +8,23 @@ import { TaskManagerService } from 'src/app/services/task-manager.service';
   templateUrl: './menu-init.component.html',
   styleUrls: ['./menu-init.component.scss']
 })
-export class MenuInitComponent implements OnInit, OnDestroy {
+export class MenuInitComponent {
   
-  public programs: Program[];
   public fillColor: string;
-  public isLoaded: boolean;
-
-  private systemProviderSubscription: Subscription;
+  public configMenu: ProgramLauncher;
 
   constructor(
-    private systemProvider: SystemDataProvider,
+    public systemService: SystemService,
+    public taskManager: TaskManagerService
   ) { 
-    this.programs = [];
     this.fillColor = '#fff';
-    this.systemProviderSubscription = new Subscription();
-    this.isLoaded = false;
+    this.configMenu = new ProgramLauncher(40, 'Configuration', 'settings', 'system-program-config-menu','S');
   }
 
-  ngOnInit(): void {
-    this.loadProgramData();
+  ngOnInit(): void {}
+
+  public openProgram(program: ProgramLauncher) {
+    this.taskManager.openSystemProgram(program);
   }
 
-  public loadProgramData() {
-    this.systemProviderSubscription =  this.systemProvider.loadPrograms().subscribe(
-      (response) => {
-        this.programs = response.programs;
-        this.isLoaded = true;
-        console.log('loadProgramData request successful', response);
-      },
-      (error) => {
-        console.error('loadProgramData request fail', error);
-      }
-    );
-  }
-
-  ngOnDestroy(): void {
-    this.systemProviderSubscription.unsubscribe();
-  }
 }

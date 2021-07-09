@@ -1,7 +1,7 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { Router } from '@angular/router';
-import { Program } from 'src/app/models/entities/program.entity';
+import { ProgramLauncher } from 'src/app/models/entities/program-launcher.entity';
 import { TaskManagerService } from 'src/app/services/task-manager.service';
 
 @Component({
@@ -11,36 +11,38 @@ import { TaskManagerService } from 'src/app/services/task-manager.service';
 })
 export class WindowComponent implements OnInit {
 
-  public program: Program;
+  public program: ProgramLauncher;
   public colorIcon: string;
+  public idTask: number;
 
   constructor(
-    @Inject(MAT_DIALOG_DATA) public data: Program,
+    @Inject(MAT_DIALOG_DATA) public data: ProgramLauncher,
     public taskManager: TaskManagerService, 
     public router: Router
   ) {
-    this.program = JSON.parse(JSON.stringify(this.data));
+    this.program = this.data;
     this.colorIcon = this.program.colorIcon;
+    this.idTask = 0;
   }
 
   ngOnInit(): void {
-    this.router.navigate([{outlets: {sidebar: this.data.programRoute}}]);
+    this.router.navigate([{ outlets: { routerOS: this.program.programRoute} }]);
   }
 
   public maximize() {
-    this.taskManager.maximize(this.program);
+    this.taskManager.maximize(this.idTask);
   }
 
   public minimize() {
-    this.taskManager.minimize(this.program);
+    this.taskManager.minimize(this.idTask);
   }
 
   public close() {
-    this.taskManager.close(this.program);
+    this.taskManager.close(this.idTask);
   }
 
   public windowClick() {
-    this.taskManager.primary(this.program);
+    this.taskManager.primary(this.idTask);
   }
 
 }

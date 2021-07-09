@@ -1,4 +1,5 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
+import { SystemService } from 'src/app/services/system.service';
 import { TaskManagerService } from 'src/app/services/task-manager.service';
 
 @Component({
@@ -9,7 +10,10 @@ import { TaskManagerService } from 'src/app/services/task-manager.service';
 })
 export class MenuBarComponent implements OnInit {
 
-  constructor(public taskManager: TaskManagerService ) {}
+  constructor(
+    public taskManager: TaskManagerService, 
+    public systemService: SystemService 
+  ) {}
 
   ngOnInit(): void {}
 

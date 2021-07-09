@@ -1,29 +1,23 @@
 import { MatDialogRef } from "@angular/material/dialog";
 import { WindowComponent } from "src/app/components/window/window.component";
+import { IProgramLauncher } from "../interfaces/program-launcher.interface";
 import { ITask } from "../interfaces/task.interface";
-import { Program } from "./program.entity";
+import { ProgramLauncher } from "./program-launcher.entity";
 
 export class Task implements ITask {
 
-    idTask: number;
-    idProgram: number;
-    title: string;
-    iconName: string;
-    colorIcon: string;
-    dialogRef: MatDialogRef<WindowComponent>;
-    isMaximize: boolean;
-    isMinimize: boolean;
+    public idTask: number;
+    public program: ProgramLauncher;
+    public dialogRef: MatDialogRef<WindowComponent>;
+    public isMaximize: boolean;
+    public isMinimize: boolean;
 
-    constructor (program: Program, dialogRef: MatDialogRef<WindowComponent>) {
-        this.idProgram = program.idProgram;
-        this.title = program.title;
-        this.iconName = program.iconName;
-        this.idTask = program.idTask;
-        this.colorIcon = program.colorIcon;
+    constructor (idTask: number, program: ProgramLauncher, dialogRef: MatDialogRef<WindowComponent>) {
+        this.idTask = idTask;
+        this.program = program;
         
         this.dialogRef = dialogRef;
         this.isMaximize = false;
         this.isMinimize = false;
     }
-    
 }

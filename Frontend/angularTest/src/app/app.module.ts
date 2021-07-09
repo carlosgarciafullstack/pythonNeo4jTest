@@ -17,6 +17,8 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatSliderModule } from '@angular/material/slider';
+import {MatExpansionModule} from '@angular/material/expansion';
+import {MatDatepickerModule} from '@angular/material/datepicker';
 
 import { SvgComponent } from './components/svgs/svg/svg.component';
 import { ProgramIconComponent } from './components/program-icon/program-icon.component';
@@ -34,6 +36,8 @@ import { AppRoutingModuleOS } from './views/view-finder-os/app-routing-os-progra
 import { CalculatorComponent } from './views/view-finder-os/programs/calculator/calculator.component';
 import { HelpComponent } from './views/view-finder-os/programs/help/help.component';
 import { AudioPlayerComponent } from './views/view-finder-os/programs/audio-player/audio-player.component';
+import { ConfigMenuSystemProgramComponent } from './views/view-finder-os/system-programs/config-menu-system-program/config-menu-system-program.component';
+import { MatNativeDateModule } from '@angular/material/core';
 
 @NgModule({
   declarations: [
@@ -53,7 +57,8 @@ import { AudioPlayerComponent } from './views/view-finder-os/programs/audio-play
     AudioPlayerTestComponent,
     CalculatorComponent,
     HelpComponent,
-    AudioPlayerComponent
+    AudioPlayerComponent,
+    ConfigMenuSystemProgramComponent,
   ],
   imports: [
     BrowserModule,
@@ -70,9 +75,12 @@ import { AudioPlayerComponent } from './views/view-finder-os/programs/audio-play
     MatFormFieldModule,
     MatInputModule,
     MatMenuModule,
-    MatSliderModule
+    MatSliderModule,
+    MatExpansionModule,
+    MatDatepickerModule,
+    MatNativeDateModule 
   ],
-  providers: [],
+  providers: [MatDatepickerModule],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

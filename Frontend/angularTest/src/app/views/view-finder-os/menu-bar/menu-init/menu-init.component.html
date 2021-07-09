@@ -1,9 +1,8 @@
-<div class="init-button-bar" *ngIf="isLoaded">
+<div class="init-button-bar" *ngIf="systemService.isLoaded">
 
     <button mat-raised-button [matMenuTriggerFor]="mainMenuBase" id="init-button" color="accent">
         <app-svg [fillColor]="fillColor"></app-svg>
     </button>
-
 
     <mat-menu #mainMenuBase="matMenu" class="main-menu-base">
         <button mat-menu-item [matMenuTriggerFor]="mainMenuTest">
@@ -12,17 +11,16 @@
         <button mat-menu-item [matMenuTriggerFor]="mainMenuPrograms">
             <mat-icon aria-hidden="false">work</mat-icon>Programs
         </button>
-        <button mat-menu-item>
-            <mat-icon aria-hidden="false">settings
-            </mat-icon>Configuration
+        <button mat-menu-item (click)="openProgram(configMenu)">
+            <mat-icon aria-hidden="false">{{configMenu.iconName}}</mat-icon>{{configMenu.title}}
         </button>
-        <button mat-menu-item>
+        <button mat-menu-item [routerLink]="'/home'">
             <mat-icon aria-hidden="false">power_settings_new</mat-icon>Exit
         </button>
     </mat-menu>
 
     <mat-menu #mainMenuPrograms="matMenu">
-        <app-init-menu-items [programs]="programs"></app-init-menu-items>
+        <app-init-menu-items [programs]="systemService.activedDesktopPrograms"></app-init-menu-items>
     </mat-menu>
 
 

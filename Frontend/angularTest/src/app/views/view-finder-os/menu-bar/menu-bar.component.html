@@ -20,7 +20,7 @@
 
     <div id="status-bar">
         <div class="status-icon-bar">
-            <ng-template ngFor let-item="$implicit" [ngForOf]="taskManager.mainPrograms" let-i="index">
+            <ng-template ngFor let-item="$implicit" [ngForOf]="systemService.activedSystemStatusPrograms" let-i="index">
                 <app-status-icon [program]="item"></app-status-icon>
                
             </ng-template>

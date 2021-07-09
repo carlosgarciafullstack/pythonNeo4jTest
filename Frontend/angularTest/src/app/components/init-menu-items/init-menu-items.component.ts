@@ -1,6 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { MatDialog } from '@angular/material/dialog';
-import { Program } from 'src/app/models/entities/program.entity';
+import { ProgramLauncher } from 'src/app/models/entities/program-launcher.entity';
 import { TaskManagerService } from 'src/app/services/task-manager.service';
 
 @Component({
@@ -10,20 +9,19 @@ import { TaskManagerService } from 'src/app/services/task-manager.service';
 })
 export class InitMenuItemsComponent implements OnInit {
 
-  @Input() programs: Program[];
+  @Input() programs: ProgramLauncher[];
   
   constructor(
-    public taskManager: TaskManagerService, 
-    public dialog: MatDialog
+    public taskManager: TaskManagerService
   ) {
     this.programs = [];
   }
 
   ngOnInit(): void {}
 
-  public click(event: any, program: Program) {
+  public click(event: any, program: ProgramLauncher) {
     if(event.detail == 1) {
-      this.taskManager.open(program);
+      this.taskManager.open(JSON.parse(JSON.stringify(program)));
     }
   }
 

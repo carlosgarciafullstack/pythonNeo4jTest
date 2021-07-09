@@ -21,11 +21,11 @@ export class ProgramIconComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.colorIcon =  this.task.colorIcon;
+    this.colorIcon =  this.task.program.colorIcon;
   }
 
   public click() {
-    this.taskManager.normalize(this.task);
+    this.taskManager.normalize(this.task.idTask);
   }
 
 }

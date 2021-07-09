@@ -2,8 +2,8 @@ import { Injectable } from '@angular/core';
 import { MatDialog, MatDialogRef } from '@angular/material/dialog';
 import { Task } from 'src/app/models/entities/task.entity';
 import { WindowComponent } from '../components/window/window.component';
-import { MainProgram } from '../models/entities/main-program.entity';
-import { Program } from '../models/entities/program.entity';
+import { ProgramLauncher } from '../models/entities/program-launcher.entity';
+import { SystemService } from './system.service';
 
 @Injectable({
   providedIn: 'root'
@@ -12,16 +12,12 @@ export class TaskManagerService {
 
   private idTaskCurrent: number;
   public activeTasks: Task[];
-  public mainPrograms: MainProgram[];
   
-
-  constructor(public dialog: MatDialog) {
+  constructor(
+    public dialog: MatDialog, 
+    public systemService: SystemService
+  ) {
     this.activeTasks = [];
-    this.mainPrograms = [{
-      idProgram: 20,
-      title: '',
-      iconName: 'volume_up'
-    }];
     this.idTaskCurrent = 0;
   }
 
@@ -32,38 +28,55 @@ export class TaskManagerService {
   */
 
   // Programs basic actions
-  public open(program: Program) {
-    
-    program.idTask = this.idTaskCurrent;
 
+  // Open basic program, add to active task
+  public open(program: ProgramLauncher) {
     let dialogRef = this.dialog.open(WindowComponent, {
       data: program,
       panelClass: 'dialogProgram',
       disableClose: true
     });
-    
-    let task = new Task(program, dialogRef);
+    dialogRef.componentInstance.idTask = this.idTaskCurrent;
+
+
+    let task = new Task(this.idTaskCurrent, program, dialogRef);
     this.activeTasks.push(task);
     this.idTaskCurrent++;
   }
 
-  public close(task: Program) {
-    const index = this.activeTasks.findIndex(element => element.idTask == task.idTask);
+  // Open basic program, add to active task
+  public openSystemProgram(program: ProgramLauncher) {
+    let dialogRef = this.dialog.open(WindowComponent, {
+      data: program,
+      panelClass: 'dialogSystemProgram',
+      disableClose: true,
+      hasBackdrop: false
+    });
+    dialogRef.componentInstance.idTask = this.idTaskCurrent;
+
+
+    let task = new Task(this.idTaskCurrent, program, dialogRef);
+    this.activeTasks.push(task);
+    this.idTaskCurrent++;
+  }
+
+  public close(idTask: number) {
+    const index = this.activeTasks.findIndex(element => element.idTask == idTask);
     if (index > -1) {
       this.activeTasks.splice(index, 1);
     }
   }
 
   // Programs secondary actions
-  public maximize(importTask: Program) {
-    let task = this.getTask(importTask);
+  public maximize(idTask: number) {
+    let task = this.getTask(idTask);
     if(task) {
       this.setAltMaximize(task);
     }
   }
 
-  public minimize(importTask: Program) {
-    let task = this.getTask(importTask);
+  public minimize(idTask: number) {
+    let task = this.getTask(idTask);
     if(task) {
       this.setAltMinimize(task);
     }
@@ -75,16 +88,16 @@ export class TaskManagerService {
     });
   }
 
-  public normalizeAll(task: Task) {
+  public normalizeAll(idTask: number) {
     this.activeTasks.forEach(element => {
-      if(element.idTask != task.idTask) {
+      if(element.idTask != idTask) {
         this.setNormalize(element);
       }
     });
   }
 
-  public normalize(importTask: Task) {
-    let task = this.getTask(importTask);
+  public normalize(idTask: number) {
+    let task = this.getTask(idTask);
     if(task) {
       if(task.isMinimize) {
         this.setAltMinimize(task);
@@ -94,8 +107,8 @@ export class TaskManagerService {
     }
   }
 
-  public primary(importTask: Program) {
-    let task = this.getTask(importTask);
+  public primary(idTask: number) {
+    let task = this.getTask(idTask);
     if(task) {
       this.setPrimary(task);
     }
@@ -119,7 +132,7 @@ export class TaskManagerService {
 
   private setAltMaximize(task: Task) {
     if(!task.isMaximize) {
-      this.normalizeAll(task);
+      this.normalizeAll(task.idTask);
       task.dialogRef.addPanelClass('maximize');
     } else {
       task.dialogRef.removePanelClass('maximize');
@@ -148,7 +161,7 @@ export class TaskManagerService {
     task.isMaximize = false;
   }
 
-  private getTask(task: Program | Task) : Task | undefined {
-    return this.activeTasks.find(element => element.idTask == task.idTask);
+  private getTask(idTask: number) : Task | undefined {
+    return this.activeTasks.find(element => element.idTask == idTask);
   }
 }

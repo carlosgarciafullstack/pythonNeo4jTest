@@ -1,10 +1,10 @@
 <div class="program-dialog" (mousedown)="windowClick()">
 
     <div mat-dialog-title>
-        <p cdkDrag cdkDragRootElement=".cdk-overlay-pane" class="header-dialog">
-            <mat-toolbar [style]="{'background-color': colorIcon}">
+        <p cdkDrag cdkDragRootElement=".cdk-overlay-pane" cdkDragBoundary="#content" class="header-dialog">
+            <mat-toolbar [style]="{'height': '36px','background-color': colorIcon}" cdkDragHandle>
                 <mat-icon>{{program.iconName}}</mat-icon>
-                <h1>{{program.title}} {{program.idTask}}</h1>
+                <h1>{{program.title}} {{idTask}}</h1>
                 <span class="spacer"></span>
                 <button mat-icon-button (click)="minimize()">
                     <mat-icon>minimize</mat-icon>
@@ -21,7 +21,7 @@
 
     <div mat-dialog-content>
         <div class="window-content">
-            <router-outlet name="sidebar"></router-outlet>
+            <router-outlet name="routerOS"></router-outlet>
         </div>
     </div>
 </div>

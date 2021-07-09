@@ -34,6 +34,7 @@ export class HomeComponent implements OnInit {
         console.log('test1GetData request successful', ok);
       },
       (ko) => {
+        this.test1Var= 'Backend is not active';
         console.error('test1GetData request fail', ko);
       }
     );

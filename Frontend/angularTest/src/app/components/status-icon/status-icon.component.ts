@@ -1,6 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { MainProgram } from 'src/app/models/entities/main-program.entity';
-import { Program } from 'src/app/models/entities/program.entity';
+import { ProgramLauncher } from 'src/app/models/entities/program-launcher.entity';
 
 @Component({
   selector: 'app-status-icon',
@@ -9,10 +8,10 @@ import { Program } from 'src/app/models/entities/program.entity';
 })
 export class StatusIconComponent implements OnInit {
 
-  @Input() public program: MainProgram;
+  @Input() public program: ProgramLauncher;
 
   constructor() { 
-    this.program = new Program();
+    this.program = new ProgramLauncher();
   }
 
   ngOnInit(): void {}
