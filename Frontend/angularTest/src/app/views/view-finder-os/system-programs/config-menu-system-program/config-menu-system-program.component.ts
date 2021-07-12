@@ -11,11 +11,7 @@ export class ConfigMenuSystemProgramComponent implements OnInit {
 
   @ViewChild(MatAccordion) accordion!: MatAccordion;
 
-  public isVisibleBackgrounds: boolean;
-
   constructor(public backgroundService :BackgroundService) {
-    
-    this.isVisibleBackgrounds = false;
   }
 
   ngOnInit(): void {
@@ -26,10 +22,11 @@ export class ConfigMenuSystemProgramComponent implements OnInit {
       if (element.isSelected) element.isSelected = false;
     });
     item.isSelected = true;
+    this.backgroundService.changeBackground();
   }
-  public saveSelected() {
-    this.isVisibleBackgrounds = false;
-    this.backgroundService.changeBackgorund();
+
+  public changeSetting(event: any) {
+    this.backgroundService.changeBackgroundSetting(event.value);
   }
 
 }

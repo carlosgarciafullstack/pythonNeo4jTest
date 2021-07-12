@@ -1,4 +1,4 @@
-<div id="content" [style]="{'background-image': backgroundService.srcBackgroundSelected }">
+<div id="content" [style]="{'background-image': backgroundService.srcBackgroundSelected }" [ngClass]="backgroundService.classCssBackgroundSelected.value">
     <ng-template ngFor let-item="$implicit" [ngForOf]="systemService.activedDesktopPrograms" let-i="index">
         <app-desktop-program-icon [program]="item"></app-desktop-program-icon>
     </ng-template>

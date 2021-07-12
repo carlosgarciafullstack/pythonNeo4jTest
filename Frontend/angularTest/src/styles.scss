@@ -33,13 +33,31 @@ body {
 
   
   #content {
-    //background-image: url("assets/img/win-beach.png");
-    background-image: url("assets/img/moon.png");
-    background-repeat: no-repeat;
-    //background-size: cover;
-    background-size: contain;
-    //background-position: center;
-    background-position: right;
+
+    &.bacground-fill {
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-position: center;
+    }
+    &.bacground-adjust {
+      background-repeat: no-repeat;
+      background-size: contain;
+      background-position: center;
+    }
+    &.bacground-adjust-right {
+      background-repeat: no-repeat;
+      background-size: contain;
+      background-position: right;
+    }
+    &.bacground-expand {
+      background-repeat: no-repeat;
+      background-size: 100% 100%;
+    }
+    &.bacground-original {
+      background-repeat: no-repeat;
+      background-size: auto;
+      background-position: center;
+    }
 
     height: calc(100vh - 40px);
     background-color: black;
@@ -160,6 +178,9 @@ body {
       z-index: 1500;
     }
     
+  }
+  .cdk-overlay-connected-position-bounding-box {
+    z-index: 99999 !important;
   }
 
   .mat-menu-panel.menu_volume {
