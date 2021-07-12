@@ -52,6 +52,10 @@ export class HomeComponent implements OnInit {
     this.router.navigateByUrl(PATHS.OS);
   }
   
+  public change(lang: string) {
+    this.translateService.setDefaultLang(lang);
+  }
+
   ngOnDestroy(): void {
     this.test1ProviderSubscription.unsubscribe();
   }
