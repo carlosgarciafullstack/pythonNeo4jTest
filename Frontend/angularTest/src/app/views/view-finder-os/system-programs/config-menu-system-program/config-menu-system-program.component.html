@@ -7,10 +7,10 @@
         <mat-accordion class="example-headers-align" multi>
             <mat-expansion-panel>
                 <mat-expansion-panel-header>
-                    <mat-panel-title>Background</mat-panel-title>
+                    <mat-panel-title>{{ 'background' | translate }}</mat-panel-title>
                 </mat-expansion-panel-header>
                 <div class="background-body-panel">
-                    <h4>Choose an image</h4>
+                    <h4>{{ 'choose_image' | translate }}</h4>
                     <div class="backgroundCollection">
                         <ng-template ngFor let-item="$implicit" [ngForOf]="backgroundService.backgrounds" let-i="index">
                             <mat-card [ngClass]="{'selected' : item.isSelected}" (click)="selected(item)">
@@ -20,12 +20,12 @@
                     </div>
                     <div class="backgroundSetting">
                         <mat-form-field appearance="fill">
-                            <mat-label>Choose a setting</mat-label>
+                            <mat-label>{{ 'choose_setting' | translate }}</mat-label>
                             <mat-select [(value)]="backgroundService.classCssBackgroundSelected"
                                 (selectionChange)="changeSetting($event)" panel=".cdk-overlay-pane">
                                 <mat-option [value]="option"
                                     *ngFor="let option of backgroundService.backgroundSettings">{{
-                                    option.viewValue }}
+                                    option.viewValue | translate }}
                                 </mat-option>
                             </mat-select>
                         </mat-form-field>

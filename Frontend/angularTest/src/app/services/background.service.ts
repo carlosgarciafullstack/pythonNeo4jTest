@@ -25,11 +25,11 @@ export class BackgroundService {
       isSelected: false
     }];
     this.backgroundSettings = [
-      {value: 'bacground-fill', viewValue: 'Fill'},
-      {value: 'bacground-adjust', viewValue: 'Adjust'},
-      {value: 'bacground-adjust-right', viewValue: 'Adjust Right'},
-      {value: 'bacground-expand', viewValue: 'Expand'},
-      {value: 'bacground-original', viewValue: 'Original'}
+      {value: 'background-fill', viewValue: 'fill'},
+      {value: 'background-adjust', viewValue: 'adjust'},
+      {value: 'background-adjust-right', viewValue: 'adjust_right'},
+      {value: 'background-expand', viewValue: 'expand'},
+      {value: 'background-original', viewValue: 'original'}
     ];
     this.srcBackgroundSelected = '';
     this.classCssBackgroundSelected = this.backgroundSettings[0];

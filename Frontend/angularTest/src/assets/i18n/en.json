@@ -1,4 +1,20 @@
 {
     "backend.Error" : "Backend is not active",
-    "result_bd": "BD result"
+    "result_bd": "BD result",
+    "change_language": "Change language",
+    "os": "os",
+    "view_finder_os": "View finder os",
+    "background": "Background",
+    "choose_image": "Choose an image",
+    "choose_setting": "Choose an setting",
+    "fill": "Fill",
+    "adjust": "Adjust",
+    "adjust_right": "Adjust Right",
+    "expand": "Expand",
+    "original": "Original",
+    "type_here_to_search": "Type here to search",
+    "login": "login",
+    "password": "Password",
+    "name": "Name",
+    "hide_password": "Hide password"
 }

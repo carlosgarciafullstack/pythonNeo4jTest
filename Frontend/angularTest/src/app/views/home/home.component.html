@@ -30,16 +30,16 @@
                     </div>
 
                     <div class="row">
-                      <div class="col-4">
-                        <p>VIEW FINDER OS</p>
+                      <div class="col-4 text-uppercase">
+                        <p>{{ 'view_finder_os' | translate }}</p>
                       </div>
                       <div class="col-2">
-                        <button id="bt1" mat-raised-button class="mat-elevation-z3" color="primary" (click)="goTo(1)">
-                          OS
+                        <button id="bt1" mat-raised-button class="mat-elevation-z3 text-uppercase" color="primary" (click)="goTo(1)">
+                          {{ 'os' | translate }}
                         </button>
                       </div>
-
-                      <div class="col-4">CHANGE LANGUAGE</div>
+                      
+                      <div class="col-4 text-uppercase">{{ 'change_language' | translate }}</div>
                       <div class="col-2">
                         <button id="bt1" mat-raised-button class="mat-elevation-z3" color="primary" (click)="change('en')">
                           EN

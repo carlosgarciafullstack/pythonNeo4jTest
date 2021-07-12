@@ -34,26 +34,26 @@ body {
   
   #content {
 
-    &.bacground-fill {
+    &.background-fill {
       background-repeat: no-repeat;
       background-size: cover;
       background-position: center;
     }
-    &.bacground-adjust {
+    &.background-adjust {
       background-repeat: no-repeat;
       background-size: contain;
       background-position: center;
     }
-    &.bacground-adjust-right {
+    &.background-adjust-right {
       background-repeat: no-repeat;
       background-size: contain;
       background-position: right;
     }
-    &.bacground-expand {
+    &.background-expand {
       background-repeat: no-repeat;
       background-size: 100% 100%;
     }
-    &.bacground-original {
+    &.background-original {
       background-repeat: no-repeat;
       background-size: auto;
       background-position: center;

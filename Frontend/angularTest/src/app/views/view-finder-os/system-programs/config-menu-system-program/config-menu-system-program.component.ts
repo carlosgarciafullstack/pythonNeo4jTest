@@ -11,7 +11,7 @@ export class ConfigMenuSystemProgramComponent implements OnInit {
 
   @ViewChild(MatAccordion) accordion!: MatAccordion;
 
-  constructor(public backgroundService :BackgroundService) {
+  constructor(public backgroundService: BackgroundService) {
   }
 
   ngOnInit(): void {

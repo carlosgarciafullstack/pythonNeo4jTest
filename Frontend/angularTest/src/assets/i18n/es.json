@@ -1,4 +1,20 @@
 {
     "backend.Error" : "El Backend no esta activado",
-    "result_bd": "Resultado de BD"
+    "result_bd": "Resultado de BD",
+    "change_language": "Cambiar idioma",
+    "os": "os",
+    "view_finder_os": "Sistema operativo",
+    "background": "Fondo de escritorio",
+    "choose_image": "Elige una imagen",
+    "choose_setting": "Elige un ajuste",
+    "fill": "Rellenar",
+    "adjust": "Adjustar",
+    "adjust_right": "Adjustar a derecha",
+    "expand": "Expandir",
+    "original": "Original",
+    "type_here_to_search": "Escribe aquí para buscar",
+    "login": "Acceder",
+    "password": "Contraseña",
+    "name": "Nombre",
+    "hide_password": "Ocultar contraseña"
 }

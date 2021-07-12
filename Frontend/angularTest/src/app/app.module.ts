@@ -43,6 +43,7 @@ import { HelpComponent } from './views/view-finder-os/programs/help/help.compone
 import { AudioPlayerComponent } from './views/view-finder-os/programs/audio-player/audio-player.component';
 import { ConfigMenuSystemProgramComponent } from './views/view-finder-os/system-programs/config-menu-system-program/config-menu-system-program.component';
 import { MatNativeDateModule } from '@angular/material/core';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -91,7 +92,8 @@ import { MatNativeDateModule } from '@angular/material/core';
     MatExpansionModule,
     MatDatepickerModule,
     MatNativeDateModule,
-    MatSelectModule
+    MatSelectModule,
+    FormsModule
   ],
   providers: [MatDatepickerModule],
   bootstrap: [AppComponent]
