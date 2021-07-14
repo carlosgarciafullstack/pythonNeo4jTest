@@ -1,11 +1,13 @@
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
+
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './views/home/home.component';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatIconModule } from '@angular/material/icon';
@@ -20,6 +22,7 @@ import { MatSliderModule } from '@angular/material/slider';
 import {MatExpansionModule} from '@angular/material/expansion';
 import {MatDatepickerModule} from '@angular/material/datepicker';
 import {MatSelectModule} from '@angular/material/select';
+import { MatNativeDateModule } from '@angular/material/core';
 
 // import ngx-translate and the http loader
 import {TranslateLoader, TranslateModule} from '@ngx-translate/core';
@@ -42,8 +45,7 @@ import { CalculatorComponent } from './views/view-finder-os/programs/calculator/
 import { HelpComponent } from './views/view-finder-os/programs/help/help.component';
 import { AudioPlayerComponent } from './views/view-finder-os/programs/audio-player/audio-player.component';
 import { ConfigMenuSystemProgramComponent } from './views/view-finder-os/system-programs/config-menu-system-program/config-menu-system-program.component';
-import { MatNativeDateModule } from '@angular/material/core';
-import { FormsModule } from '@angular/forms';
+
 
 @NgModule({
   declarations: [
@@ -93,7 +95,8 @@ import { FormsModule } from '@angular/forms';
     MatDatepickerModule,
     MatNativeDateModule,
     MatSelectModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [MatDatepickerModule],
   bootstrap: [AppComponent]

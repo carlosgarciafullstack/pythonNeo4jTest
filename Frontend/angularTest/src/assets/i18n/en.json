@@ -16,5 +16,7 @@
     "login": "login",
     "password": "Password",
     "name": "Name",
-    "hide_password": "Hide password"
+    "hide_password": "Hide password",
+    "invalid_user": "Invalid user",
+    "invalid_password": "Invalid password"
 }

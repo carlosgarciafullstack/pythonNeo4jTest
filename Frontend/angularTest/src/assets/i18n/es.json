@@ -16,5 +16,7 @@
     "login": "Acceder",
     "password": "Contraseña",
     "name": "Nombre",
-    "hide_password": "Ocultar contraseña"
+    "hide_password": "Ocultar contraseña",
+    "invalid_user": "Usuario invalido",
+    "invalid_password": "Contraseña invalida"
 }

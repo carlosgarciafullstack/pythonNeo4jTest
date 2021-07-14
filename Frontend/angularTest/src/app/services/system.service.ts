@@ -1,4 +1,4 @@
-import { Injectable, OnInit } from "@angular/core";
+import { Injectable } from "@angular/core";
 import { ProgramLauncher } from "../models/entities/program-launcher.entity";
 import { SystemDataProvider } from "../providers/system-data.provider";
 

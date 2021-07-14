@@ -35,4 +35,74 @@
     }
   }
 
+  .loader {
+    background-image: url('../../../assets/img/planet-earth.svg');
+    background-size: 92px;
+    background-position: center;
+    background-repeat: no-repeat;
+    position: absolute;
+    top: calc(50% - 75px);
+    left: calc(50% - 75px);
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    perspective: 800px;
+  
+  
+    .inner {
+      position: absolute;
+      box-sizing: border-box;
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;  
+    }
+    
+    .inner.one {
+      left: 0%;
+      top: 0%;
+      animation: rotate-one 0.5s linear infinite;
+      border-bottom: 6px solid #0707bb;
+    }
+    
+    .inner.two {
+      right: 0%;
+      top: 0%;
+      animation: rotate-two 1s linear infinite;
+      border-right: 6px solid #ea0fb1;
+    }
+    
+    .inner.three {
+      right: 0%;
+      bottom: 0%;
+      animation: rotate-three 1.5s linear infinite;
+      border-top: 6px solid aquamarine;
+    }
+    
+    @keyframes rotate-one {
+      0% {
+        transform: rotateX(35deg) rotateY(-45deg) rotateZ(0deg);
+      }
+      100% {
+        transform: rotateX(35deg) rotateY(-45deg) rotateZ(360deg);
+      }
+    }
+    
+    @keyframes rotate-two {
+      0% {
+        transform: rotateX(50deg) rotateY(10deg) rotateZ(0deg);
+      }
+      100% {
+        transform: rotateX(50deg) rotateY(10deg) rotateZ(360deg);
+      }
+    }
+    
+    @keyframes rotate-three {
+      0% {
+        transform: rotateX(35deg) rotateY(55deg) rotateZ(0deg);
+      }
+      100% {
+        transform: rotateX(35deg) rotateY(55deg) rotateZ(360deg);
+      }
+    }
+  }
 }
