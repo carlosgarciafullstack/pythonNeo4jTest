@@ -1,6 +1,7 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { IUserConfig } from '../models/interfaces/user-config.interface';
 import { IUserLogin } from '../models/interfaces/user-login.interface';
 
 @Injectable({
@@ -21,6 +22,10 @@ export class SystemDataProvider {
     });
     let options = { headers: headers };
 
-    return this.http.post<IUserLogin>('http://127.0.0.1:5000/login', user, options);
+    return this.http.post<IUserLogin>('http://127.0.0.1:5000/login', user);
+  }
+
+  public getUserConfig(): Observable<any> {
+    return this.http.get<IUserConfig>('http://127.0.0.1:5000/userConfig');
   }
 }

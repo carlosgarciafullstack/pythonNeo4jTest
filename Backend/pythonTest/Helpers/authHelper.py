@@ -13,7 +13,6 @@ class Auth():
         """
         try:
             payload = {
-                'iss': 'ken',
                 'data': {
                     'id': id,
                     'name': name,
@@ -21,6 +20,8 @@ class Auth():
                     'dateTime': int(time.time())
                 }
             }
+            print("payload", payload)
+            print("config.SECRET_KEY", config.SECRET_KEY)
             return jwt.encode(
                 payload,
                 config.SECRET_KEY,
@@ -37,7 +38,8 @@ class Auth():
         :return: integer|string
         """
         try:
-            payload = jwt.decode(auth_token, config.SECRET_KEY, options={ 'verify_exp': False})
+            payload = jwt.decode(auth_token)
+            print("DECODE payload", payload)
             if ('data' in payload and 'id' in payload['data']):
                 return payload
             else:

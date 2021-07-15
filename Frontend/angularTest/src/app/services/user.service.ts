@@ -1,5 +1,6 @@
 import { Injectable } from "@angular/core";
 import { Subject } from "rxjs";
+import { IUserConfig } from "../models/interfaces/user-config.interface";
 import { IUserLogin } from "../models/interfaces/user-login.interface";
 import { SystemDataProvider } from "../providers/system-data.provider";
 
@@ -10,11 +11,13 @@ export class UserService {
 
   public user!: IUserLogin;
   public isAutorize: boolean;
-  public subject: Subject<boolean>;
+  public loginSubject: Subject<boolean>;
+
+  public userConfig!: IUserConfig;
 
   constructor(public provider: SystemDataProvider) {
     this.isAutorize = false;
-    this.subject = new Subject<boolean>();
+    this.loginSubject = new Subject<boolean>();
   }
 
   public login(user: IUserLogin): Subject<boolean> {
@@ -22,19 +25,36 @@ export class UserService {
       (response) => {
 
         this.isAutorize = true;
-        this.subject.next(this.isAutorize);
+        this.getUserConfig();
         console.log('login request successful', response);
       },
       (error) => {
 
-        this.subject.next(this.isAutorize);
+        this.loginSubject.next(this.isAutorize);
         console.error('login request fail', error);
       },
       () => {
         subscription.unsubscribe();
       }
     );
-    return this.subject;
+    return this.loginSubject;
+  }
+
+  private getUserConfig(): void {
+    let subscription = this.provider.getUserConfig().subscribe(
+      (response) => {
+        this.userConfig = response;
+        this.loginSubject.next(this.isAutorize);
+        console.log('userConfig request successful', response);
+      },
+      (error) => {
+        this.loginSubject.next(this.isAutorize);
+        console.error('userConfig request fail', error);
+      },
+      () => {
+        subscription.unsubscribe();
+      }
+    );
   }
 
 }
