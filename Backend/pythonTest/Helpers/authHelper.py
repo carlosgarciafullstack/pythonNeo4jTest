@@ -1,10 +1,10 @@
 import jwt, time
-from . import config
+from WebApi.systemConfig import *
 
 class Auth():
 
     @staticmethod
-    def encode_auth_token(id, name):
+    def encode_auth_token(user):
         """
             Generar token de autenticación
         :param user_id: int
@@ -14,37 +14,34 @@ class Auth():
         try:
             payload = {
                 'data': {
-                    'id': id,
-                    'name': name,
+                    'id': user.id,
+                    'name': user.name,
                     'role': 0,
                     'dateTime': int(time.time())
                 }
             }
-            print("payload", payload)
-            print("config.SECRET_KEY", config.SECRET_KEY)
-            return jwt.encode(
+            token = jwt.encode(
                 payload,
-                config.SECRET_KEY,
+                TOKEN_SECRET_KEY,
                 algorithm='HS256'
             )
+            user.setToken(token)
+            return user
         except Exception as e:
+            print("JWT EXCEPTION", e)
             return e
 
     @staticmethod
     def decode_auth_token(auth_token):
         """
-            Verificar token
-        :param auth_token:
-        :return: integer|string
+        Verificar token
+            :param auth_token:
+            :return: integer|string
         """
-        try:
-            payload = jwt.decode(auth_token)
-            print("DECODE payload", payload)
-            if ('data' in payload and 'id' in payload['data']):
-                return payload
-            else:
-                raise jwt.InvalidTokenError
-        except jwt.ExpiredSignatureError:
-            return'Token expired '
-        except jwt.InvalidTokenError:
-            return 'Token inválido'
+
+        payload = jwt.decode(auth_token, TOKEN_SECRET_KEY, options={ 'verify_exp': False}, algorithms=["HS256"])
+        if ('data' in payload and 'id' in payload['data2']):
+            return payload
+        else:
+            raise jwt.InvalidTokenError
+    

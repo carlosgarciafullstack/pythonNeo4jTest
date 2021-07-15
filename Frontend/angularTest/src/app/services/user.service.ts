@@ -1,5 +1,6 @@
 import { Injectable } from "@angular/core";
 import { Subject } from "rxjs";
+import { User } from "../models/entities/user.entity";
 import { IUserConfig } from "../models/interfaces/user-config.interface";
 import { IUserLogin } from "../models/interfaces/user-login.interface";
 import { SystemDataProvider } from "../providers/system-data.provider";
@@ -9,7 +10,7 @@ import { SystemDataProvider } from "../providers/system-data.provider";
 })
 export class UserService {
 
-  public user!: IUserLogin;
+  public user!: User;
   public isAutorize: boolean;
   public loginSubject: Subject<boolean>;
 
@@ -23,7 +24,7 @@ export class UserService {
   public login(user: IUserLogin): Subject<boolean> {
     let subscription = this.provider.login(user).subscribe(
       (response) => {
-
+        this.user = response;
         this.isAutorize = true;
         this.getUserConfig();
         console.log('login request successful', response);

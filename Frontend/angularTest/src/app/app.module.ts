@@ -1,4 +1,4 @@
-import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { HttpClient, HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -45,6 +45,8 @@ import { CalculatorComponent } from './views/view-finder-os/programs/calculator/
 import { HelpComponent } from './views/view-finder-os/programs/help/help.component';
 import { AudioPlayerComponent } from './views/view-finder-os/programs/audio-player/audio-player.component';
 import { ConfigMenuSystemProgramComponent } from './views/view-finder-os/system-programs/config-menu-system-program/config-menu-system-program.component';
+import { SafePipe } from './pipes/safe.pipe';
+import { AuthInterceptor } from './interceptor/auth.interceptor';
 
 
 @NgModule({
@@ -67,6 +69,7 @@ import { ConfigMenuSystemProgramComponent } from './views/view-finder-os/system-
     HelpComponent,
     AudioPlayerComponent,
     ConfigMenuSystemProgramComponent,
+    SafePipe
   ],
   imports: [
     BrowserModule,
@@ -98,7 +101,10 @@ import { ConfigMenuSystemProgramComponent } from './views/view-finder-os/system-
     FormsModule,
     ReactiveFormsModule
   ],
-  providers: [MatDatepickerModule],
+  providers: [
+    MatDatepickerModule,
+    { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
