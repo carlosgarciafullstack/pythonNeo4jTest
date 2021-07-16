@@ -40,7 +40,7 @@ class Auth():
         """
 
         payload = jwt.decode(auth_token, TOKEN_SECRET_KEY, options={ 'verify_exp': False}, algorithms=["HS256"])
-        if ('data' in payload and 'id' in payload['data2']):
+        if ('data' in payload and 'id' in payload['data']):
             return payload
         else:
             raise jwt.InvalidTokenError
