@@ -40,7 +40,20 @@ export class BackgroundService {
     this.srcBackgroundSelected = 'url(' + this.backgrounds.find(e => e.isSelected == true).src + ')';
   }
 
+  public setBackground(id: number) {
+    let background = this.backgrounds.find(e => e.id == id);
+    this.activeBackground(background);
+  }
+
   public changeBackgroundSetting(option: any) {
     this.classCssBackgroundSelected = option;
+  }
+
+  public activeBackground(item: any) {
+    this.backgrounds.forEach(element => {
+      if (element.isSelected) element.isSelected = false;
+    });
+    item.isSelected = true;
+    this.changeBackground();
   }
 }

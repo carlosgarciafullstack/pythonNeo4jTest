@@ -8,10 +8,9 @@ systemController = Blueprint('system-controller', __name__, template_folder='tem
 @systemController.route('/login', methods=['POST'])
 def login():
   try:
-    service = SystemService()
-    user = request.json
-    result = service.login(user)
-    return result
+    userLogin = request.json
+    user = SystemService().login(userLogin)
+    return successResponse(user, True, '')
 
   except Exception as inst:
     print("SystemController /login - EXCEPTION ", inst)
@@ -20,11 +19,10 @@ def login():
 @systemController.route('/userConfig', methods=['Get'])
 @authorize
 def getUserConfig(user):
-
   try:
-    service = SystemService()
-    return service.getUserConfig(user)
-
+    config = SystemService().getUserConfig(user)
+    return successResponse(config, True, '')
+    
   except Exception as inst:
     print("SystemController /userConfig - EXCEPTION ", inst)
     return successResponse([], False, inst.args[0])

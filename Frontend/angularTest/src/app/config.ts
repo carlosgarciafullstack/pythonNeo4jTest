@@ -10,3 +10,7 @@ export const PATHS_OS_PROGRAMS = {
 
     SYSTEM_CONFIG_MENU: 'system-program-config-menu'
 };
+
+export const CONFIG = {
+    URL_API: 'http://127.0.0.1:5000'
+};

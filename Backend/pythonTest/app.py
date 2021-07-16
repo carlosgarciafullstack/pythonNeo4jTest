@@ -1,5 +1,5 @@
 from flask import Flask
-from flask_cors import CORS, cross_origin
+from flask_cors import CORS
 
 from WebApi.Controllers.test1Controller import test1Controller
 from WebApi.Controllers.systemController import systemController

@@ -4,6 +4,7 @@ import { User } from "../models/entities/user.entity";
 import { IUserConfig } from "../models/interfaces/user-config.interface";
 import { IUserLogin } from "../models/interfaces/user-login.interface";
 import { SystemDataProvider } from "../providers/system-data.provider";
+import { BackgroundService } from "./background.service";
 
 @Injectable({
   providedIn: 'root'
@@ -16,7 +17,10 @@ export class UserService {
 
   public userConfig!: IUserConfig;
 
-  constructor(public provider: SystemDataProvider) {
+  constructor(
+    public provider: SystemDataProvider,
+    public backgroundService: BackgroundService
+  ) {
     this.isAutorize = false;
     this.loginSubject = new Subject<boolean>();
   }
@@ -24,7 +28,7 @@ export class UserService {
   public login(user: IUserLogin): Subject<boolean> {
     let subscription = this.provider.login(user).subscribe(
       (response) => {
-        this.user = response;
+        this.user = response.data;
         this.isAutorize = true;
         this.getUserConfig();
         console.log('login request successful', response);
@@ -44,7 +48,12 @@ export class UserService {
   private getUserConfig(): void {
     let subscription = this.provider.getUserConfig().subscribe(
       (response) => {
-        this.userConfig = response;
+        if (response.success) {
+          this.userConfig = response.data;
+          this.backgroundService.setBackground(Number(this.userConfig.background));
+          this.backgroundService.changeBackgroundSetting(this.userConfig.classCssBackground);
+        }
+        
         this.loginSubject.next(this.isAutorize);
         console.log('userConfig request successful', response);
       },

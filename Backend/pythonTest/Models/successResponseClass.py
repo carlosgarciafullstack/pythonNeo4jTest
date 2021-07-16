@@ -1,10 +1,9 @@
 class SuccessResponseClass:
 
-    def __init__(self, data, success, message):
+  def __init__(self, data, success, message):
+    self.data = data
+    self.success = success
+    self.message = message
 
-        self.data = data
-        self.success = success
-        self.message = message
-
-    def serialize(self):
-        return self.__dict__
+  def serialize(self):
+    return self.__dict__

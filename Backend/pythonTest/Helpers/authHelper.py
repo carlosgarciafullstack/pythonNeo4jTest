@@ -5,12 +5,6 @@ class Auth():
 
     @staticmethod
     def encode_auth_token(user):
-        """
-            Generar token de autenticación
-        :param user_id: int
-        :param login_time: int(timestamp)
-        :return: string
-        """
         try:
             payload = {
                 'data': {
@@ -33,12 +27,6 @@ class Auth():
 
     @staticmethod
     def decode_auth_token(auth_token):
-        """
-        Verificar token
-            :param auth_token:
-            :return: integer|string
-        """
-
         payload = jwt.decode(auth_token, TOKEN_SECRET_KEY, options={ 'verify_exp': False}, algorithms=["HS256"])
         if ('data' in payload and 'id' in payload['data']):
             return payload
