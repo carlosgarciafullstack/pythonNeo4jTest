@@ -1,4 +1,5 @@
 from DataAccess.Repositories.systemRepository import SystemRepository
+from DataAccess.Repositories.baseRepository import BaseRepository
 from Models.userClass import UserClass
 from Models.userConfigClass import UserConfigClass
 from Helpers.authHelper import Auth
@@ -25,6 +26,13 @@ class SystemService:
 
   def getUserConfig(self, user):
     entityResult = SystemRepository().getUserConfig(user)
+    entityResult2 = BaseRepository().getNodeById(10)
+    print("BY ID", entityResult2)
+    entityResult3 = BaseRepository().getUserConfig(10, "propiedad1", "valorPropiedad1")
+    print("BY ID", entityResult3)
+
+    entityResult = SystemRepository().getUserConfig(user)
+    print("BY ID", entityResult)
     entityCount = len(entityResult)
 
     if(entityCount == 0):
