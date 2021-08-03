@@ -1,7 +1,27 @@
 <audio #audioElement src="{{src}}">
     <p>Your browser does not support HTML5 audio. Here is a <a href="{{src}}">link</a> instead.</p>
 </audio>
-<span (click)="paused ? play() : pause()" class="icon-align-middle">
-    <mat-icon *ngIf="paused" class="icon-size-30">play_circle_outline</mat-icon>
-    <mat-icon *ngIf="!paused" class="icon-size-30">pause_circle_outline</mat-icon>
-</span>
+<div class="row">
+    <div class="col-12">
+    <canvas #audioPlayerCanvas width="auto" height="auto"></canvas></div>
+</div>
+<div class="row">
+    <div class="col-4">
+        <span id="play_stop" (click)="paused ? play() : pause()" class="icon-align-middle">
+            <button *ngIf="paused" mat-raised-button class="program-icon-button">
+                <mat-icon aria-hidden="false">play_circle_outline</mat-icon>
+            </button>
+            <button *ngIf="!paused" mat-raised-button class="program-icon-button">
+                <mat-icon aria-hidden="false">pause_circle_outline</mat-icon>
+            </button>
+
+        </span>
+
+    </div>
+    <div class="col-8" id="volume">
+        <mat-icon *ngIf="!mute" (click)="muteChange()">volume_up</mat-icon>
+        <mat-icon *ngIf="mute" (click)="muteChange()">volume_down</mat-icon>
+        <mat-slider class="slider_volume" (change)="changeValue($event)" step="0.1" min="0" max="1" [value]="volume">
+        </mat-slider>
+    </div>
+</div>

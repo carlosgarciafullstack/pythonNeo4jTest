@@ -24,5 +24,5 @@ def getUserConfig(user):
     return successResponse(config, True, '')
     
   except Exception as inst:
-    print("SystemController /userConfig - EXCEPTION ", inst)
+    print(">>>>>>>>>>>>>>>SystemController /userConfig - EXCEPTION ", inst)
     return successResponse([], False, inst.args[0])

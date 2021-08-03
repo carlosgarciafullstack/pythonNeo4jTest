@@ -9,7 +9,7 @@
         },
         {
             "idProgram" : 2,
-            "title": "Device Unknown",
+            "title": "Play Audio",
             "iconName": "device_unknown",
             "programRoute": "program-audio",
             "type": "G"

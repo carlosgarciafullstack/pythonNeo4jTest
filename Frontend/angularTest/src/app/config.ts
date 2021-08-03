@@ -1,6 +1,7 @@
 export const PATHS = {
     HOME: 'home',
-    OS: 'view-finder-os'
+    OS: 'view-finder-os',
+    MAP: 'map-viewer'
 };
 
 export const PATHS_OS_PROGRAMS = {

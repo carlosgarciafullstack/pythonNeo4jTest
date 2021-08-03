@@ -1,0 +1,42 @@
+#play_stop .mat-icon {
+    font-size: 60px;
+    color: white;
+    cursor: pointer;
+    position: absolute;
+    top: 5px;
+    left: 5px;
+}
+
+#volume .mat-icon {
+    font-size: 40px;
+    width: 40px;
+    top: 15px;
+    position: relative;
+}
+
+.program-icon-button {
+    background-color: black;
+    width: 70px;
+    height: 70px;
+}
+ 
+#thefile {
+    position: fixed;
+    top: 10px;
+    left: 10px;
+    z-index: 100;
+  }
+  
+  /*
+#audio-player-canvas {
+    width: 45%;
+    height: 30%;
+}
+
+audio {
+    position: fixed;
+    left: 10px;
+    bottom: 10px;
+    width: calc(100% - 20px);
+}
+*/

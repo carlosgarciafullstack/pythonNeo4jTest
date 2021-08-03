@@ -47,6 +47,7 @@ import { AudioPlayerComponent } from './views/view-finder-os/programs/audio-play
 import { ConfigMenuSystemProgramComponent } from './views/view-finder-os/system-programs/config-menu-system-program/config-menu-system-program.component';
 import { SafePipe } from './pipes/safe.pipe';
 import { AuthInterceptor } from './interceptor/auth.interceptor';
+import { MapViewerComponent } from './components/map-viewer/map-viewer.component';
 
 
 @NgModule({
@@ -69,7 +70,8 @@ import { AuthInterceptor } from './interceptor/auth.interceptor';
     HelpComponent,
     AudioPlayerComponent,
     ConfigMenuSystemProgramComponent,
-    SafePipe
+    SafePipe,
+    MapViewerComponent
   ],
   imports: [
     BrowserModule,

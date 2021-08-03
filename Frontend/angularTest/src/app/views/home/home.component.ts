@@ -49,7 +49,17 @@ export class HomeComponent implements OnInit {
   }
 
   public goTo(code: number) {
-    this.router.navigateByUrl(PATHS.OS);
+    switch (code) {
+      case 1:
+        this.router.navigateByUrl(PATHS.OS);
+        break;
+      case 2:
+        this.router.navigateByUrl(PATHS.MAP);
+        break;
+      default:
+        this.router.navigateByUrl(PATHS.OS);
+        break;
+    }
   }
   
   public change(lang: string) {

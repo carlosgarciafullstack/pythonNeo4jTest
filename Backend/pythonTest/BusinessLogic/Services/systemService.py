@@ -3,6 +3,7 @@ from DataAccess.Repositories.baseRepository import BaseRepository
 from Models.userClass import UserClass
 from Models.userConfigClass import UserConfigClass
 from Helpers.authHelper import Auth
+import json
 
 class SystemService:
 
@@ -26,17 +27,14 @@ class SystemService:
 
   def getUserConfig(self, user):
     entityResult = SystemRepository().getUserConfig(user)
-    entityResult2 = BaseRepository().getNodeById(10)
-    print("BY ID", entityResult2)
-    entityResult3 = BaseRepository().getUserConfig(10, "propiedad1", "valorPropiedad1")
-    print("BY ID", entityResult3)
-
-    entityResult = SystemRepository().getUserConfig(user)
-    print("BY ID", entityResult)
     entityCount = len(entityResult)
 
     if(entityCount == 0):
-      raise Exception('SystemService - getUserConfig - UserConfig Not Found', '0')
+      config = UserConfigClass("1", '{"value":"background-adjust-right","viewValue":"adjust_right"}')
+
+      entityResult = SystemRepository().createUserConfig(user, config.serialize())
+      userConfig = entityResult[0]['uc']
+      return userConfig.serialize()
     elif(entityCount > 1):
       raise Exception('SystemService - getUserConfig - Too many results', '1')
     else:
@@ -44,3 +42,8 @@ class SystemService:
       userConfigClass = UserConfigClass(userConfig["background"], userConfig["classCssBackground"])
       
       return userConfigClass.serialize()
+
+  def createUser(self, user):
+    entityResult = SystemRepository().getUserConfig(user)
+    user = entityResult[0]['u']
+    return user.serialize()
