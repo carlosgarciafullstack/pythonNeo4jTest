@@ -1,0 +1,37 @@
+#fondo {
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: block;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    background-color: transparent;
+
+    @keyframes airbus {
+        50% {
+            top: calc(100vh - 96%);
+            left: calc(100vw - 83%);
+            height: calc(10vh * 7);
+        }
+        100% {
+            top: 0px;
+            left: -10px;
+            height: 30px;
+        }
+    }
+
+    #airbus {
+        position: absolute;
+        top: calc(100vh - 700%);
+        left: calc(100vw - 625%);
+        height: calc(10vh * 130);
+
+        &.animation-play {
+            animation: airbus 2s forwards;
+        }
+    }
+        
+    
+    
+}

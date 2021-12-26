@@ -4,6 +4,7 @@ import { Observable } from 'rxjs';
 import { IUserLogin } from '../models/interfaces/user-login.interface';
 import { CONFIG } from '../config';
 import { IResponse } from '../models/interfaces/response.interface';
+import { INewUser } from '@core/models/interfaces/new-user.interface';
 
 @Injectable({
   providedIn: 'root'
@@ -22,5 +23,9 @@ export class SystemDataProvider {
 
   public getUserConfig(): Observable<IResponse> {
     return this.http.get<IResponse>(CONFIG.URL_API+'/userConfig');
+  }
+  
+  public newUser(user: INewUser): Observable<IResponse> {
+    return this.http.post<IResponse>(CONFIG.URL_API+'/newUser', user);
   }
 }

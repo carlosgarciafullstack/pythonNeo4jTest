@@ -4,72 +4,72 @@
 
   <div class="allcenter">
     <div class="center6 mat-elevation-z3">
-      <div class="center5 mat-elevation-z4">
-        <div class="center4 mat-elevation-z5">
-          <div class="center3 mat-elevation-z6">
-            <div class="center2 mat-elevation-z7">
-              <div class="center1 mat-elevation-z8">
-                <div class="pt-3 pb-3">
-                  <mat-card>
-                    <div class="row">
-                      <div class="col-3">
-                        {{ 'result_bd' | translate }} :
-                      </div>
-                      <div class="col-9">
-                        {{test1Var}}
-                      </div>
-                    </div>
-                  </mat-card>
-                  <mat-card>
-                    <div class="row">
-                      <div class="col-3">
-                        MAP :
-                      </div>
-                      <div class="col-9">
-                        <button id="bt1" mat-raised-button class="mat-elevation-z3 text-uppercase" color="primary" (click)="goTo(2)">
-                          MAP
-                        </button>
-                      </div>
-                    </div>
-                  </mat-card>
-                </div>
-                <div class="pt-3 pb-3">
-                  <mat-card>
-                    <div class="row">
-                      <div class="col-12">
-                        <h1>GO TO</h1>
-                      </div>
-                    </div>
 
-                    <div class="row">
-                      <div class="col-4 text-uppercase">
-                        <p>{{ 'view_finder_os' | translate }}</p>
-                      </div>
-                      <div class="col-2">
-                        <button id="bt1" mat-raised-button class="mat-elevation-z3 text-uppercase" color="primary" (click)="goTo(1)">
-                          {{ 'os' | translate }}
-                        </button>
-                      </div>
-                      
-                      <div class="col-4 text-uppercase">{{ 'change_language' | translate }}</div>
-                      <div class="col-2">
-                        <button id="bt1" mat-raised-button class="mat-elevation-z3" color="primary" (click)="change('en')">
-                          EN
-                        </button>
-                        <button id="bt2" mat-raised-button class="mat-elevation-z3" color="primary" (click)="change('es')">
-                          ES
-                        </button>
-                      </div>
-                    </div>
-                  </mat-card>
-                </div>
+      <div class="center1 mat-elevation-z8">
+        <div class="pt-3 pb-3">
+          <mat-card>
+            <div class="row">
+              <div class="col-12">
+                {{ 'text_test_conection' | translate }} :
+              </div>
+              <div class="col-3">
+                {{ 'result_bd' | translate }} :
+              </div>
+              <div class="col-9">
+                {{test1Var}}
               </div>
             </div>
-          </div>
+          </mat-card>
+          <mat-card class="mt-3">
+            <div class="row">
+              <div class="col-3">
+                MAP :
+              </div>
+              <div class="col-9">
+                <button id="bt1" mat-raised-button class="mat-elevation-z3 text-uppercase" color="primary"
+                  (click)="goTo(2)">
+                  MAP
+                </button>
+              </div>
+            </div>
+          </mat-card>
+        </div>
+        <div class="pt-3 pb-3">
+          <mat-card>
+            <div class="row">
+              <div class="col-12">
+                <h1>GO TO</h1>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-3 text-uppercase">
+                <p>{{ 'view_finder_os' | translate }}</p>
+              </div>
+              <div class="col-2">
+                <button id="bt1" mat-raised-button class="mat-elevation-z3 text-uppercase" color="primary"
+                  (click)="goTo(1)">
+                  {{ 'os' | translate }}
+                </button>
+              </div>
+
+              <div class="col-3 text-uppercase">{{ 'change_language' | translate }}</div>
+              <div class="col-2">
+                <button id="bt1" mat-raised-button class="mat-elevation-z3" color="primary" (click)="change('en')">
+                  EN
+                </button>
+              </div>
+              <div class="col-2">
+                <button id="bt2" mat-raised-button class="mat-elevation-z3" color="primary" (click)="change('es')">
+                  ES
+                </button>
+              </div>
+            </div>
+          </mat-card>
         </div>
       </div>
     </div>
   </div>
-
 </div>
+
 <!-- <div [class.mat-elevation-z2]="!isActive" [class.mat-elevation-z8]="isActive"></div> -->

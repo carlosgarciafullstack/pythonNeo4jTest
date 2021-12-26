@@ -3,29 +3,15 @@
   <app-menu-bar></app-menu-bar>
 </div>
 <div class="init-loading" [ngClass]="classLogin">
-  <div class="from-login" *ngIf="loginIsVisible">
+  <ng-container *ngIf="loginLoaded">
+    <div class="from-login" [hidden]="!loginIsVisible">
 
-    <mat-form-field appearance="fill" (click)="modelChange()">
-      <mat-label>{{ 'name' | translate }}</mat-label>
-      <input matInput [(ngModel)]="user.name" [errorStateMatcher]="customError">
-      <mat-error *ngIf="loginFailure">{{ 'invalid_user' | translate }}</mat-error>
-    </mat-form-field>
-
-    <mat-form-field appearance="fill" (click)="modelChange()">
-      <mat-label>{{ 'password' | translate }}</mat-label>
-      <input matInput [type]="hide ? 'password' : 'text'" [(ngModel)]="user.password" [errorStateMatcher]="customError" >
-      <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]=" 'hide_password' | translate"
-        [attr.aria-pressed]="hide">
-        <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
-      </button>
-      <mat-error *ngIf="loginFailure">{{ 'invalid_password' | translate }}</mat-error>
-    </mat-form-field>
-
-    <button mat-raised-button class="mat-elevation-z3 text-uppercase" color="primary" (click)="login()">
-      {{ 'login' | translate }}
-    </button>
-
-  </div>
+      <app-login *ngIf="loginView" (changeLoginVisibleEmitter)="loginIsVisible = !loginIsVisible" (classLoginEmitter)="login($event)" (newUserEmitter)="loginView = false"></app-login>
+      <app-new-user *ngIf="!loginView" (changeLoginVisibleEmitter)="loginIsVisible = !loginIsVisible" (newUserEmitter)="loginView = true"></app-new-user>
+  
+    </div>
+  </ng-container>
+  
   <div class="loader" *ngIf="!loginIsVisible">
     <div class="inner one"></div>
     <div class="inner two"></div>

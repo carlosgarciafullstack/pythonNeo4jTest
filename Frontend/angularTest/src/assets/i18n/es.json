@@ -1,6 +1,6 @@
 {
     "backend.Error" : "El Backend no esta activado",
-    "result_bd": "Resultado de BD",
+    "result_bd": "Resultado del test",
     "change_language": "Cambiar idioma",
     "os": "os",
     "view_finder_os": "Sistema operativo",
@@ -15,8 +15,15 @@
     "type_here_to_search": "Escribe aquí para buscar",
     "login": "Acceder",
     "password": "Contraseña",
+    "password2": "Repita contraseña",
     "name": "Nombre",
     "hide_password": "Ocultar contraseña",
     "invalid_user": "Usuario invalido",
-    "invalid_password": "Contraseña invalida"
+    "invalid_password": "Contraseña invalida",
+    "empty_password": "Contraseña vacia",
+    "new_user_exist": "Usuario en uso",
+    "invalid_password_match": "Las contraseñas no coinciden",
+    "new_user": "Crear usuario",
+    "back":"Atrás",
+    "text_test_conection": "Test de conexion con backend y base de datos"
 }

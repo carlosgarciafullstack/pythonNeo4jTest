@@ -1,4 +1,5 @@
 import { Injectable } from "@angular/core";
+import { INewUser } from "@core/models/interfaces/new-user.interface";
 import { Subject } from "rxjs";
 import { User } from "../models/entities/user.entity";
 import { IUserConfig } from "../models/interfaces/user-config.interface";
@@ -14,6 +15,7 @@ export class UserService {
   public user!: User;
   public isAutorize: boolean;
   public loginSubject: Subject<boolean>;
+  public newUserSubject: Subject<boolean>;
 
   public userConfig!: IUserConfig;
 
@@ -23,6 +25,7 @@ export class UserService {
   ) {
     this.isAutorize = false;
     this.loginSubject = new Subject<boolean>();
+    this.newUserSubject = new Subject<boolean>();
   }
 
   public login(user: IUserLogin): Subject<boolean> {
@@ -43,6 +46,28 @@ export class UserService {
       }
     );
     return this.loginSubject;
+  }
+
+  public newUser(user: INewUser): Subject<boolean> {
+    let subscription = this.provider.newUser(user).subscribe(
+      (response) => {
+        if(response.success){
+          this.newUserSubject.next(true);
+          console.log('new User ok', response.message);
+        } else {
+          this.newUserSubject.next(false);
+          console.log('Name user in use', response.message);
+        }
+      },
+      (error) => {
+        console.error('new User request fail', error);
+        this.newUserSubject.next(false);
+      },
+      () => {
+        subscription.unsubscribe();
+      }
+    );
+    return this.newUserSubject;
   }
 
   private getUserConfig(): void {

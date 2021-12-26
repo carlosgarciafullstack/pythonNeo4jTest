@@ -44,6 +44,10 @@ class SystemService:
       return userConfigClass.serialize()
 
   def createUser(self, user):
-    entityResult = SystemRepository().getUserConfig(user)
-    user = entityResult[0]['u']
-    return user.serialize()
+    entityResult = SystemRepository().isUserExists(user)
+    entityCount = len(entityResult)
+    if(entityCount == 0):
+      entityResult = SystemRepository().createUser(user)
+      return True
+    else:
+      raise Exception('User Exists', '1')

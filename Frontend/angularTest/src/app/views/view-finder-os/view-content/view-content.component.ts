@@ -1,8 +1,6 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
-import { Subscription } from 'rxjs';
-import { ProgramLauncher } from 'src/app/models/entities/program-launcher.entity';
-import { BackgroundService } from 'src/app/services/background.service';
-import { SystemService } from 'src/app/services/system.service';
+import { Component } from '@angular/core';
+import { BackgroundService } from '@core/services/background.service';
+import { SystemService } from '@core/services/system.service';
 
 @Component({
   selector: 'app-view-content',
@@ -14,11 +12,5 @@ export class ViewContentComponent {
   constructor(
     public systemService: SystemService,
     public backgroundService: BackgroundService
-  ) {
-    
-  }
-
-  ngOnInit(): void {
-  }
-
+  ) {}
 }

@@ -4,9 +4,12 @@
 h1 {
     margin-left: 5px;
 }
-
+.window-content {
+    height: 100%;
+}
 /*
 .window-content {
+    height: -webkit-fill-available;
     background-image: url("../../../assets/img/Protruding-Squares.svg");
     background-repeat: repeat;
     background-size: auto;

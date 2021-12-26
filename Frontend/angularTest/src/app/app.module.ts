@@ -48,7 +48,11 @@ import { ConfigMenuSystemProgramComponent } from './views/view-finder-os/system-
 import { SafePipe } from './pipes/safe.pipe';
 import { AuthInterceptor } from './interceptor/auth.interceptor';
 import { MapViewerComponent } from './components/map-viewer/map-viewer.component';
-
+import { AnimationTestComponent } from './views/animation-test/animation-test.component';
+import { AnimationTest2Component } from './views/animation-test2/animation-test2.component';
+import { AnimationTest3Component } from './views/animation-test3/animation-test3.component';
+import { LoginComponent } from './views/view-finder-os/home/login/login.component';
+import { NewUserComponent } from './views/view-finder-os/home/new-user/new-user.component';
 
 @NgModule({
   declarations: [
@@ -71,7 +75,12 @@ import { MapViewerComponent } from './components/map-viewer/map-viewer.component
     AudioPlayerComponent,
     ConfigMenuSystemProgramComponent,
     SafePipe,
-    MapViewerComponent
+    MapViewerComponent,
+    AnimationTestComponent,
+    AnimationTest2Component,
+    AnimationTest3Component,
+    LoginComponent,
+    NewUserComponent
   ],
   imports: [
     BrowserModule,

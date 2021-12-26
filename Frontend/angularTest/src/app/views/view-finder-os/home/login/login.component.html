@@ -1,0 +1,30 @@
+<mat-form-field appearance="fill" (click)="modelChange()" class="w-100">
+  <mat-label>{{ 'name' | translate }}</mat-label>
+  <input matInput [(ngModel)]="user.name" [errorStateMatcher]="customError">
+  <mat-error *ngIf="loginFailure">{{ 'invalid_user' | translate }}</mat-error>
+</mat-form-field>
+
+<mat-form-field appearance="fill" (click)="modelChange()" class="w-100">
+  <mat-label>{{ 'password' | translate }}</mat-label>
+  <input matInput [type]="hide ? 'password' : 'text'" [(ngModel)]="user.password" [errorStateMatcher]="customError">
+  <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]=" 'hide_password' | translate"
+    [attr.aria-pressed]="hide">
+    <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+  </button>
+  <mat-error *ngIf="loginFailure">{{ 'invalid_password' | translate }}</mat-error>
+</mat-form-field>
+
+<div class="row mt-3">
+  <div class="col-8">
+    <button mat-raised-button class="mat-elevation-z3 text-uppercase w-100" color="primary" (click)="login()">
+      {{ 'login' | translate }}
+    </button>
+  </div>
+  <div class="col-4">
+    <button mat-raised-button class="mat-elevation-z3 text-uppercase w-100" color="primary" (click)="newUser()">
+      {{ 'new_user' | translate }}
+    </button>
+  </div>
+  
+  
+</div>

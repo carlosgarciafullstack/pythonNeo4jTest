@@ -16,6 +16,19 @@ def login():
     print("SystemController /login - EXCEPTION ", inst)
     abort(401,'UNAUTHORIZED')
 
+@systemController.route('/newUser', methods=['POST'])
+def newUser():
+  try:
+    userLogin = request.json
+    createdUser = SystemService().createUser(userLogin)
+    return successResponse(createdUser, True, '')
+
+  except Exception as inst:
+    print("SystemController /newUser - EXCEPTION ", inst)
+    if(inst.args[1] == '1'):
+      return successResponse([], False, inst.args[1])
+    else:
+      return successResponse([], False, inst.args[0])
 @systemController.route('/userConfig', methods=['Get'])
 @authorize
 def getUserConfig(user):

@@ -7,6 +7,7 @@ import { HelpComponent } from './programs/help/help.component';
 import { ConfigMenuSystemProgramComponent } from './system-programs/config-menu-system-program/config-menu-system-program.component';
 
 
+
 const routes: Routes = [
   { path: PATHS_OS_PROGRAMS.AUDIO, component: AudioPlayerComponent, outlet: "routerOS" },
   { path: PATHS_OS_PROGRAMS.CALCULATOR, component: CalculatorComponent, outlet: "routerOS" },

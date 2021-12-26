@@ -15,8 +15,15 @@
     "type_here_to_search": "Type here to search",
     "login": "login",
     "password": "Password",
+    "password2": "Retry Password",
     "name": "Name",
     "hide_password": "Hide password",
     "invalid_user": "Invalid user",
-    "invalid_password": "Invalid password"
+    "invalid_password": "Invalid password",
+    "empty_password": "Empty password",
+    "new_user_exist": "User in use",
+    "invalid_password_match": "Passwords match us",
+    "new_user": "New User",
+    "back":"Back",
+    "text_test_conection": "Connection test with backend and database"
 }

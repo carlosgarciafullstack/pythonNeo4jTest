@@ -8,6 +8,10 @@ class SystemRepository:
     query = "MATCH (u:APP_USER { name: '"+ user['name'] +"', password: '"+ user['password'] +"' }) RETURN u, id(u) "
     return self.driver.run(query)
 
+  def isUserExists(self, user):
+    query = "MATCH (u:APP_USER { name: '"+ user['name'] +"' }) RETURN u, id(u) "
+    return self.driver.run(query)
+
   def createUser(self, user):
     query = "CREATE (u:APP_USER { name: '"+ user['name'] +"', password: '"+ user['password'] +"' }) RETURN u, id(u) "
     return self.driver.run(query)

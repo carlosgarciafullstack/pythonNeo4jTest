@@ -138,6 +138,7 @@ export class TaskManagerService {
       task.dialogRef.removePanelClass('maximize');
     }
     task.isMaximize = !task.isMaximize;
+    window.dispatchEvent(new Event('resize2'));
   }
 
   private setAltMinimize(task: Task) {
@@ -159,6 +160,7 @@ export class TaskManagerService {
   private setNormalize(task: Task) {
     task.dialogRef.removePanelClass('maximize');
     task.isMaximize = false;
+    window.dispatchEvent(new Event('resize2'));
   }
 
   private getTask(idTask: number) : Task | undefined {

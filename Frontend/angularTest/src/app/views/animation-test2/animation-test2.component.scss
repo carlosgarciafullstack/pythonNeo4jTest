@@ -1,0 +1,21 @@
+
+#login {
+    background-color: transparent;
+    position: relative;
+    top: 36%;
+    display: flex;
+    flex-direction: column;
+    width: 200px;
+    height: 200px;
+    margin-right: auto;
+    margin-left: auto;
+
+    .button-animation {
+        position: relative;
+        top: 36%;
+        text-align: center;
+        background-color: red;
+        width: 100px;
+        height: 100px;
+    }
+}
