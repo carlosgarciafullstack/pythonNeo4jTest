@@ -17,6 +17,7 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { MatCardModule } from '@angular/material/card';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
+import { MatRadioModule } from '@angular/material/radio';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatSliderModule } from '@angular/material/slider';
 import {MatExpansionModule} from '@angular/material/expansion';
@@ -103,6 +104,7 @@ import { NewUserComponent } from './views/view-finder-os/home/new-user/new-user.
     MatCardModule,
     MatFormFieldModule,
     MatInputModule,
+    MatRadioModule,
     MatMenuModule,
     MatSliderModule,
     MatExpansionModule,
@@ -114,7 +116,7 @@ import { NewUserComponent } from './views/view-finder-os/home/new-user/new-user.
   ],
   providers: [
     MatDatepickerModule,
-    { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true }
+    { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },
   ],
   bootstrap: [AppComponent]
 })

@@ -1,5 +1,6 @@
 {
     "backend.Error" : "El Backend no esta activado",
+    "bd.Error": "La Base de Datos no esta activada",
     "result_bd": "Resultado del test",
     "change_language": "Cambiar idioma",
     "os": "os",
@@ -25,5 +26,7 @@
     "invalid_password_match": "Las contraseñas no coinciden",
     "new_user": "Crear usuario",
     "back":"Atrás",
-    "text_test_conection": "Test de conexion con backend y base de datos"
+    "text_test_conection": "Test de conexion con backend y base de datos",
+    "image":"Imagen",
+    "map":"Mapa"
 }

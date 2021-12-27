@@ -21,9 +21,11 @@ class SystemRepository:
     return self.driver.run(query)
 
   def createUserConfig(self, user, config):
-    query = 'MATCH (u:APP_USER {name: "'+ user['name'] +'"}) CREATE (u)-[r:RELATION_USER_CONFIG]->(uc:USER_CONFIG { background:"'+ config['background'] +'", classCssBackground:"'+ str(config['classCssBackground']) +'"  } ) RETURN uc '
+    query = 'MATCH (u:APP_USER {name: "'+ user['name'] +'"}) CREATE (u)-[r:RELATION_USER_CONFIG]->(uc:USER_CONFIG { background:"'+ str(config['background']) +'", classCssBackground:"'+ str(config['classCssBackground']) +'", mapBackground:"'+ str(config['mapBackground']) +'"  } ) RETURN uc '
     return self.driver.run(query)
 
-
+  def saveUserConfig(self, user, config):
+    query = 'MATCH (u:APP_USER {name: "'+ user['name'] +'"})-[r:RELATION_USER_CONFIG]->(uc:USER_CONFIG) SET uc.background = "'+ str(config['background']) +'", uc.classCssBackground = "'+ str(config['classCssBackground']) +'", uc.mapBackground = "'+ str(config['mapBackground']) +'" RETURN uc '
+    return self.driver.run(query)
   #CREATE (u:APP_USER {name:"user1", password:"pass1", user:"user1"})
   #MATCH (u:APP_USER {name: "user1"}) CREATE (u)-[r:RELATION_USER_CONFIG]->(uc:USER_CONFIG { background:"1", classCssBackground:"{'value': 'background-adjust-right', 'viewValue': 'adjust_right'}"  } )  RETURN uc 

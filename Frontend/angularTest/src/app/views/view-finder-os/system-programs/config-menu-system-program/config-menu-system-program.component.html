@@ -1,15 +1,28 @@
 <div id="configMenuSystemProgram">
-    <mat-card class="card-menu-config">
-        <div class="example-action-buttons">
-            <button mat-button (click)="accordion.openAll()">Expand All</button>
-            <button mat-button (click)="accordion.closeAll()">Collapse All</button>
-        </div>
-        <mat-accordion class="example-headers-align" multi>
-            <mat-expansion-panel>
-                <mat-expansion-panel-header>
-                    <mat-panel-title>{{ 'background' | translate }}</mat-panel-title>
-                </mat-expansion-panel-header>
-                <div class="background-body-panel">
+
+    <div class="example-action-buttons">
+        <button mat-button (click)="accordion.openAll()">Expand All</button>
+        <button mat-button (click)="accordion.closeAll()">Collapse All</button>
+    </div>
+    <mat-accordion class="example-headers-align" multi>
+        <mat-expansion-panel>
+            <mat-expansion-panel-header>
+                <mat-panel-title>{{ 'background' | translate }}</mat-panel-title>
+            </mat-expansion-panel-header>
+
+            <!-- Body -->
+            <div class="background-body-panel">
+
+                <div class="selectionType">
+                    <mat-radio-group [formControl]="backgroundSelectionType">
+                        <div class="row">
+                            <mat-radio-button value="image" class="col-6">{{ 'image' | translate }}</mat-radio-button>
+                            <mat-radio-button value="map" class="col-6">{{ 'map' | translate }}</mat-radio-button>
+                        </div>
+                    </mat-radio-group>
+                </div>
+
+                <div class="mt-3" [hidden]="backgroundSelectionType.value == 'map' ">
                     <h4>{{ 'choose_image' | translate }}</h4>
                     <div class="backgroundCollection">
                         <ng-template ngFor let-item="$implicit" [ngForOf]="backgroundService.backgrounds" let-i="index">
@@ -31,61 +44,63 @@
                         </mat-form-field>
                     </div>
                 </div>
-            </mat-expansion-panel>
-            <!--
-            <mat-expansion-panel>
-                <mat-expansion-panel-header>
-                    <mat-panel-title>
-                        Personal data
-                    </mat-panel-title>
-                    <mat-panel-description>
-                        Type your name and age
-                        <mat-icon>account_circle</mat-icon>
-                    </mat-panel-description>
-                </mat-expansion-panel-header>
 
-                <mat-form-field appearance="fill">
-                    <mat-label>First name</mat-label>
-                    <input matInput>
-                </mat-form-field>
+            </div>
+        </mat-expansion-panel>
+        <!--
+        <mat-expansion-panel>
+            <mat-expansion-panel-header>
+                <mat-panel-title>
+                    Personal data
+                </mat-panel-title>
+                <mat-panel-description>
+                    Type your name and age
+                    <mat-icon>account_circle</mat-icon>
+                </mat-panel-description>
+            </mat-expansion-panel-header>
 
-                <mat-form-field appearance="fill">
-                    <mat-label>Age</mat-label>
-                    <input matInput type="number" min="1">
-                </mat-form-field>
+            <mat-form-field appearance="fill">
+                <mat-label>First name</mat-label>
+                <input matInput>
+            </mat-form-field>
 
-            </mat-expansion-panel>
-            
-            
-            <mat-expansion-panel>
-                <mat-expansion-panel-header>
-                    <mat-panel-title>
-                        Background
-                    </mat-panel-title>
-                    <mat-panel-description>
-                        <mat-icon>date_range</mat-icon>
-                    </mat-panel-description>
-                </mat-expansion-panel-header>
+            <mat-form-field appearance="fill">
+                <mat-label>Age</mat-label>
+                <input matInput type="number" min="1">
+            </mat-form-field>
 
-                <button *ngIf="!isVisibleBackgrounds" color="primary" mat-raised-button (click)="isVisibleBackgrounds = !isVisibleBackgrounds">Change</button>
-                <ng-container *ngIf="isVisibleBackgrounds">
-                    <button mat-raised-button color="primary" class="mx-3" (click)="saveSelected()">Save</button>
-                    <button mat-raised-button color="accent" (click)="isVisibleBackgrounds = !isVisibleBackgrounds">Cancel</button>
-                </ng-container>
+        </mat-expansion-panel>
+        
+        
+        <mat-expansion-panel>
+            <mat-expansion-panel-header>
+                <mat-panel-title>
+                    Background
+                </mat-panel-title>
+                <mat-panel-description>
+                    <mat-icon>date_range</mat-icon>
+                </mat-panel-description>
+            </mat-expansion-panel-header>
 
-                <div *ngIf="isVisibleBackgrounds" class="backgroundCollection">
-                    <ng-template ngFor let-item="$implicit" [ngForOf]="backgroundService.backgrounds" let-i="index">
-                        <mat-card [ngClass]="{'selected' : item.isSelected}" (click)="selected(item)">
-                            <img [src]="item.src">
-                        </mat-card>
-                       
-                    </ng-template>
-                </div>
-            </mat-expansion-panel>-->
+            <button *ngIf="!isVisibleBackgrounds" color="primary" mat-raised-button (click)="isVisibleBackgrounds = !isVisibleBackgrounds">Change</button>
+            <ng-container *ngIf="isVisibleBackgrounds">
+                <button mat-raised-button color="primary" class="mx-3" (click)="saveSelected()">Save</button>
+                <button mat-raised-button color="accent" (click)="isVisibleBackgrounds = !isVisibleBackgrounds">Cancel</button>
+            </ng-container>
 
-        </mat-accordion>
+            <div *ngIf="isVisibleBackgrounds" class="backgroundCollection">
+                <ng-template ngFor let-item="$implicit" [ngForOf]="backgroundService.backgrounds" let-i="index">
+                    <mat-card [ngClass]="{'selected' : item.isSelected}" (click)="selected(item)">
+                        <img [src]="item.src">
+                    </mat-card>
+                    
+                </ng-template>
+            </div>
+        </mat-expansion-panel>-->
 
-    </mat-card>
+    </mat-accordion>
+
+
 
 
 

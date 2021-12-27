@@ -26,6 +26,7 @@ export class UserService {
     this.isAutorize = false;
     this.loginSubject = new Subject<boolean>();
     this.newUserSubject = new Subject<boolean>();
+    this.backgroundService.changeConfig.subscribe((data) => this.changeUserConfig(data));
   }
 
   public login(user: IUserLogin): Subject<boolean> {
@@ -69,14 +70,22 @@ export class UserService {
     );
     return this.newUserSubject;
   }
+  
+  public changeUserConfig(data: IUserConfig) {
+    this.saveUserConfig(data);
+  }
+
+  public saveUserConfig(userConfig: IUserConfig): void {
+    this.userConfig = userConfig;
+    this.provider.saveUserConfig(this.userConfig).subscribe((a)=>console.log("Return",a));
+  }
 
   private getUserConfig(): void {
     let subscription = this.provider.getUserConfig().subscribe(
       (response) => {
         if (response.success) {
           this.userConfig = response.data;
-          this.backgroundService.setBackground(Number(this.userConfig.background));
-          this.backgroundService.changeBackgroundSetting(this.userConfig.classCssBackground);
+          this.backgroundService.setConfig(this.userConfig);
         }
         
         this.loginSubject.next(this.isAutorize);
@@ -91,5 +100,7 @@ export class UserService {
       }
     );
   }
+
+  
 
 }

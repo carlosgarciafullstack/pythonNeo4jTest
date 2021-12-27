@@ -1,4 +1,5 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
+import { FormControl } from '@angular/forms';
 import { MatAccordion } from '@angular/material/expansion';
 import { BackgroundService } from 'src/app/services/background.service';
 
@@ -9,12 +10,18 @@ import { BackgroundService } from 'src/app/services/background.service';
 })
 export class ConfigMenuSystemProgramComponent implements OnInit {
 
+  public backgroundSelectionType: FormControl;
+
   @ViewChild(MatAccordion) accordion!: MatAccordion;
 
   constructor(public backgroundService: BackgroundService) {
+    this.backgroundSelectionType = new FormControl(this.backgroundService.typeBackgroundSelection);
   }
-
+  
   ngOnInit(): void {
+    this.backgroundSelectionType.valueChanges.subscribe(
+      () => this.backgroundService.changeTypeBackground(this.backgroundSelectionType.value)
+    );
   }
 
   public selected(item: any) {
@@ -28,6 +35,6 @@ export class ConfigMenuSystemProgramComponent implements OnInit {
   public changeSetting(event: any) {
     this.backgroundService.changeBackgroundSetting(event.value);
   }
-
+  
 }
 

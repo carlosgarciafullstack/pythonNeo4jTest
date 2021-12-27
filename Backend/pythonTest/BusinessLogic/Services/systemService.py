@@ -30,7 +30,7 @@ class SystemService:
     entityCount = len(entityResult)
 
     if(entityCount == 0):
-      config = UserConfigClass("1", '{"value":"background-adjust-right","viewValue":"adjust_right"}')
+      config = UserConfigClass("1", '{"value":"background-adjust-right","viewValue":"adjust_right"}', 'image')
 
       entityResult = SystemRepository().createUserConfig(user, config.serialize())
       userConfig = entityResult[0]['uc']
@@ -39,8 +39,7 @@ class SystemService:
       raise Exception('SystemService - getUserConfig - Too many results', '1')
     else:
       userConfig = entityResult[0]['uc']
-      userConfigClass = UserConfigClass(userConfig["background"], userConfig["classCssBackground"])
-      
+      userConfigClass = UserConfigClass(userConfig["background"], userConfig["classCssBackground"],userConfig["mapBackground"])
       return userConfigClass.serialize()
 
   def createUser(self, user):
@@ -51,3 +50,7 @@ class SystemService:
       return True
     else:
       raise Exception('User Exists', '1')
+
+  def setUserConfig(self, user, config):
+    entityResult = SystemRepository().saveUserConfig(user, config)
+    return True

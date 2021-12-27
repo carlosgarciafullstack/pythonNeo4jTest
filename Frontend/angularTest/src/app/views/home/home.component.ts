@@ -34,15 +34,11 @@ export class HomeComponent implements OnInit {
   public test1() {
     this.test1ProviderSubscription =  this.test1Provider.test1GetData().subscribe(
       (ok) => {
-        let keyLanguage = ok.data;
-        this.translateService.get(keyLanguage).subscribe((ok)=> {this.test1Var = ok;});
-
         this.test1Var = ok.data;
-        //result_bd
-        console.log('test1GetData request successful', ok);
+        console.log('test1GetData request successful', this.test1Var);
       },
       (ko) => {
-        this.translateService.get('backend.Error').subscribe((ok)=> {this.test1Var = ok;});
+        this.test1Var = 'backend.Error';
         console.error('test1GetData request fail', ko);
       }
     );

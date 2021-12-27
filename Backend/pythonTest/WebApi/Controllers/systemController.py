@@ -29,6 +29,7 @@ def newUser():
       return successResponse([], False, inst.args[1])
     else:
       return successResponse([], False, inst.args[0])
+
 @systemController.route('/userConfig', methods=['Get'])
 @authorize
 def getUserConfig(user):
@@ -37,5 +38,17 @@ def getUserConfig(user):
     return successResponse(config, True, '')
     
   except Exception as inst:
-    print(">>>>>>>>>>>>>>>SystemController /userConfig - EXCEPTION ", inst)
+    print(">>>>>>>>>>>>>>>SystemController GET /userConfig - EXCEPTION ", inst)
+    return successResponse([], False, inst.args[0])
+
+@systemController.route('/userConfig', methods=['POST'])
+@authorize
+def setUserConfig(user):
+  try:
+    userConfig = request.json
+    config = SystemService().setUserConfig(user, userConfig)
+    return successResponse(config, True, '')
+    
+  except Exception as inst:
+    print(">>>>>>>>>>>>>>>SystemController POST /userConfig - EXCEPTION ", inst)
     return successResponse([], False, inst.args[0])

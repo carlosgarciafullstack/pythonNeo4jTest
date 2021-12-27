@@ -56,6 +56,7 @@ http://127.0.0.1:5000/
 5. Path to neo4j/bin, execute "neo4j console" to init server 
 6. Init http://localhost:7474/browser/ webbrowsert
 7. Init conexion and change password for: mainBD
+8. Stop server neo4j, in neo4j console use Cont+C
 9. Path to neo4j/bin, execute "neo4j console" to init server 
 
 ## Conect for admin database

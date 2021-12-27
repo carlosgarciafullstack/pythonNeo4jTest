@@ -1,5 +1,6 @@
 {
-    "backend.Error" : "Backend is not active",
+    "backend.Error": "Backend is not active",
+    "bd.Error": "BD is not active",
     "result_bd": "BD result",
     "change_language": "Change language",
     "os": "os",
@@ -25,5 +26,7 @@
     "invalid_password_match": "Passwords match us",
     "new_user": "New User",
     "back":"Back",
-    "text_test_conection": "Connection test with backend and database"
+    "text_test_conection": "Connection test with backend and database",
+    "image":"Image",
+    "map":"Map"
 }

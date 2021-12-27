@@ -1,5 +1,16 @@
-<div id="content" [style]="{'background-image': backgroundService.srcBackgroundSelected }" [ngClass]="backgroundService.classCssBackgroundSelected.value">
-    <ng-template ngFor let-item="$implicit" [ngForOf]="systemService.activedDesktopPrograms" let-i="index">
-        <app-desktop-program-icon [program]="item"></app-desktop-program-icon>
-    </ng-template>
-</div> 
+<!-- Image background -->
+<div id="imageBackground"
+    *ngIf="!backgroundService.activeMapBackground"
+    [style]="{'background-image': backgroundService.srcBackgroundSelected }"
+    [ngClass]="backgroundService.classCssBackgroundSelected.value">
+</div>
+<!-- Map background -->
+<app-map-viewer id="mapBackground" *ngIf="backgroundService.activeMapBackground"></app-map-viewer>
+
+<div id="content">
+    <div id="menuIconsBackground">
+        <ng-template ngFor let-item="$implicit" [ngForOf]="systemService.activedDesktopPrograms" let-i="index">
+            <app-desktop-program-icon [program]="item"></app-desktop-program-icon>
+        </ng-template>
+    </div>
+</div>

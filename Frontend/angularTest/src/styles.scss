@@ -30,9 +30,19 @@ html, body {
 body { 
   margin: 0; 
   font-family: Roboto, "Helvetica Neue", sans-serif; 
-
-  
+ 
   #content {
+    width: 100%;
+    height: calc(100vh - 40px);
+    background-color: black;
+    display: flex;
+    flex-direction: column;
+  }
+
+  #imageBackground {
+    height: calc(100vh - 40px);
+    width: 100%;
+    position: absolute;
 
     &.background-fill {
       background-repeat: no-repeat;
@@ -58,11 +68,12 @@ body {
       background-size: auto;
       background-position: center;
     }
+  }
 
+  #mapBackground {
     height: calc(100vh - 40px);
-    background-color: black;
-    display: flex;
-    flex-direction: column;
+    width: 100%;
+    position: absolute;
   }
 
   #init-bar {
@@ -233,7 +244,14 @@ body {
       top: 12px;
     
   }
-  
+  #map {
+    .mapboxgl-ctrl-bottom-left {
+        .mapboxgl-ctrl{
+            margin: 0 0 10px 1000px;
+        }
+        
+    }
+}
   
   
   
