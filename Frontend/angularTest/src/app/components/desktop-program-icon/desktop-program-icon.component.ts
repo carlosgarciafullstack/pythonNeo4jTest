@@ -17,6 +17,7 @@ export class DesktopProgramIconComponent implements OnInit {
     public taskManager: TaskManagerService,
   ) {
     this.program = new ProgramLauncher();
+    //this.program.title
     this.colorIcon = '#'+(0x1000000 + Math.random()*0xffffff).toString(16).substr(1,6);
   }
 

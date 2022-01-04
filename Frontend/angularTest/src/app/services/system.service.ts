@@ -38,6 +38,7 @@ export class SystemService {
       (response) => {
         this.activedInitPrograms = response.programs;
         this.activedDesktopPrograms = response.programs;
+        console.log('RESPOSNE', response.programs);
         this.isLoaded = true;
         console.log('loadProgramData request successful', response);
       },
