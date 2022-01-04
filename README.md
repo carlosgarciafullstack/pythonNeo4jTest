@@ -67,3 +67,6 @@ Open chrome : http://localhost:7474/browser/
     - Authentication type User/Pass
     - User:       neo4j
     - Pass:       mainBD
+
+#ThreeJS with Angular and custom canvas
+https://github.com/JohnnyDevNull/ng-three-template

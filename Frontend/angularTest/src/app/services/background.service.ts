@@ -48,7 +48,6 @@ export class BackgroundService {
 
   public setConfig(config: IUserConfig) {
     this.userConfig = config;
-    console.log("CONFIG", config);
     if(!this.mapBackground(config.mapBackground)){
       this.setBackground( Number(config.background));
       this.changeBackgroundSetting(config.classCssBackground);
@@ -89,7 +88,6 @@ export class BackgroundService {
   }
 
   private mapBackground(mapBackground: string) {
-    console.log(mapBackground);
     let activeMapBackground = false;
     if(mapBackground == 'map'){
       activeMapBackground = true;

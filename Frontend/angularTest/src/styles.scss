@@ -76,6 +76,12 @@ body {
     position: absolute;
   }
 
+  #threeBackground {
+    height: calc(100vh - 40px);
+    width: 100%;
+    position: absolute;
+  }
+
   #init-bar {
     background-color: rgb(28, 28, 28);
     height: 40px;

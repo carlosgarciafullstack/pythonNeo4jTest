@@ -1,11 +1,13 @@
 <!-- Image background -->
 <div id="imageBackground"
-    *ngIf="!backgroundService.activeMapBackground"
+    *ngIf="backgroundService.typeBackgroundSelection == 'image' "
     [style]="{'background-image': backgroundService.srcBackgroundSelected }"
     [ngClass]="backgroundService.classCssBackgroundSelected.value">
 </div>
 <!-- Map background -->
-<app-map-viewer id="mapBackground" *ngIf="backgroundService.activeMapBackground"></app-map-viewer>
+<app-map-viewer id="mapBackground" *ngIf="backgroundService.typeBackgroundSelection == 'map' "></app-map-viewer>
+<app-three-viewer id="threeBackground" *ngIf="backgroundService.typeBackgroundSelection == 'three' "></app-three-viewer>
+
 
 <div id="content">
     <div id="menuIconsBackground">

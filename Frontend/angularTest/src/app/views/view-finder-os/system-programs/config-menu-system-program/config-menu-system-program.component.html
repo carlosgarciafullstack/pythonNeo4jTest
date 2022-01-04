@@ -18,11 +18,12 @@
                         <div class="row">
                             <mat-radio-button value="image" class="col-6">{{ 'image' | translate }}</mat-radio-button>
                             <mat-radio-button value="map" class="col-6">{{ 'map' | translate }}</mat-radio-button>
+                            <mat-radio-button value="three" class="col-6 mt-3">{{ 'three' | translate }}</mat-radio-button>
                         </div>
                     </mat-radio-group>
                 </div>
 
-                <div class="mt-3" [hidden]="backgroundSelectionType.value == 'map' ">
+                <div class="mt-3" [hidden]="backgroundSelectionType.value != 'image' ">
                     <h4>{{ 'choose_image' | translate }}</h4>
                     <div class="backgroundCollection">
                         <ng-template ngFor let-item="$implicit" [ngForOf]="backgroundService.backgrounds" let-i="index">

@@ -54,6 +54,7 @@ import { AnimationTest2Component } from './views/animation-test2/animation-test2
 import { AnimationTest3Component } from './views/animation-test3/animation-test3.component';
 import { LoginComponent } from './views/view-finder-os/home/login/login.component';
 import { NewUserComponent } from './views/view-finder-os/home/new-user/new-user.component';
+import { TreeViewerComponent } from './components/three-viewer/three-viewer.component';
 
 @NgModule({
   declarations: [
@@ -77,6 +78,7 @@ import { NewUserComponent } from './views/view-finder-os/home/new-user/new-user.
     ConfigMenuSystemProgramComponent,
     SafePipe,
     MapViewerComponent,
+    TreeViewerComponent,
     AnimationTestComponent,
     AnimationTest2Component,
     AnimationTest3Component,
